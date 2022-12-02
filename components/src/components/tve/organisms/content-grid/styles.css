@@ -2,26 +2,10 @@
 
 .contentGrid {
   padding-bottom: 48px;
-
-  @media (--small-up) {
-    padding-bottom: 56px;
-  }
-
-  @media (--medium-up) {
-    padding-bottom: 92px;
-  }
 }
 
 .sectionTitle {
   margin-bottom: 20px;
-
-  @media (--small-up) {
-    margin-bottom: 16px;
-  }
-
-  @media (--medium-up) {
-    margin-bottom: 20px;
-  }
 }
 
 /* Used for fixture only */

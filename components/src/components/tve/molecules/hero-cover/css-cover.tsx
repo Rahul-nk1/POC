@@ -57,7 +57,7 @@ export const CSSCover = ({
             title: image.description,
           };
           return (
-            <div ref={_ref}>
+            <div ref={_ref} className={styles.imageContainer}>
               <SonicImage
                 className={styles.cssCoverImage}
                 image={currImgProps}

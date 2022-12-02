@@ -11,6 +11,8 @@ export const enum ComponentId {
   Playlist = "playlist",
   TabbedContent = "tabbed-content",
   TabbedComponent = "tabbed-component",
+  PromotionBanner = "promotion-banner",
+  RedirectionBanner = "redirection-banner",
 }
 
 export enum PageComponentId {

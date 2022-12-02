@@ -35,7 +35,6 @@ import {
   searchResultsPath,
   isSearchPath,
 } from "../../../../site-builder/tve/components/menu-bar";
-
 import { SiteLogo } from "./site-logo";
 import { LinkIcon } from "./link-icon";
 import * as styles from "./styles.css";

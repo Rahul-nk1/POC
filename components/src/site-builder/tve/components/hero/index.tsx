@@ -13,9 +13,8 @@ import { EventDataProvider } from "@discovery/common-tve/lib/eventing";
 import { useMemo } from "@discovery/common-tve/lib/hooks";
 import { RenderMaybe } from "@discovery/components-luna-react/lib/utils/render-maybe";
 import { usePageMeta } from "@discovery/components-tve/src/utils/hooks/use-page-meta";
-
-// import { Hero as HeroViewTVE } from "../../../../components/tve/organisms/hero";
-import { HeroCoverSizes } from "../../../../components/tve/molecules/hero-cover";
+import { Hero as HeroView } from "../../../../components/tve/organisms/hero";
+import { useActiveVideoForShow } from "../../../../utils/hooks/use-active-video-for-show";
 import { GenericCarousel } from "../../../../components/tve/molecules/generic-carousel";
 import {
   GoToNext,
@@ -34,6 +33,7 @@ import { safeNthItemRenderer } from "../../../../utils/render";
 import { _Col2HeroData, _Col2HeroDataPlaylist, _MobileImage } from "./optics";
 import * as styles from "./styles.css";
 import { InlineProps } from "../../utils/inline-rendering";
+import * as RD from "@discovery/prelude/lib/data/remote-data";
 
 const DEFAULT_ADVANCE_TIME_S = 5;
 const MAX_HERO_ITEMS = 13;
@@ -191,7 +191,17 @@ const Hero = ({
               componentIdM={componentIdM}
               alias={O.getOrElse(() => "")(aliasM)}
             >
-              <div>HERO VIEW GOES HERE</div>
+              <HeroView
+                coverImageM={imageM}
+                mobileCoverImageM={mobileImageM}
+                templateId={templateId}
+                metadata={{
+                  ...metadata,
+                  activeVideoForShowMRD: useActiveVideoForShow(
+                    activeVideoForShowAlternateIdM
+                  ),
+                }}
+              ></HeroView>
             </EventDataProvider>
           ),
           heroItemsL

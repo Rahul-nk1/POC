@@ -1,0 +1,185 @@
+@import "~global/css/breakpoints.css";
+@import "~brand/css/index.css";
+
+$iconSize: 32px;
+$iconSizeLarge: 44px;
+
+.bannerContainer {
+  position: relative;
+  height: 460px;
+  overflow: hidden;
+  margin: 12px auto 80px;
+  border-radius: 2px;
+  cursor: default;
+  display: flex;
+
+  @media (--xlarge-down) {
+    margin: 0 80px 64px;
+  }
+
+  @media (--medium-down) {
+    margin: 0 56px 64px;
+  }
+}
+
+.container {
+  width: 100%;
+}
+
+.cssCoverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+
+  &.cssCoverImageDesktop {
+    @media (--small-up) {
+      display: block;
+    }
+  }
+
+  &.cssCoverImageMobile {
+    @media (--small-down) {
+      display: block;
+    }
+  }
+}
+
+.metadataContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 80px 0 0 8%;
+  width: 50%;
+  z-index: 3;
+
+  @media (--small-down) {
+    padding: 165px 0 0 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .title {
+    width: 33.75rem;
+    font-size: 2.875rem;
+    color: $brand-color-white;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    @media (--medium-up) {
+      font-size: 2.5rem;
+    }
+
+    @media (--medium-down) {
+      font-size: 1.875rem;
+    }
+
+    @media (--small-down) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .promoSpectrumBar {
+    margin-left: -25px;
+    width: 75%;
+    @media (--medium-down) {
+      width: 70%;
+    }
+    @media (--mobile-only) {
+      margin-left: 10px;
+      width: 100%;
+    }
+    @media (--tablet-only) {
+      width: 100%;
+      margin-left: -15px;
+    }
+  }
+
+  .description {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+    top: 60px;
+    @media (--small-up) {
+      font-size: 20px;
+      line-height: 16px;
+      margin: 0 0 40px;
+      transform: translateY(-20px);
+    }
+
+    @media (--medium-up) {
+      font-size: 24px;
+      line-height: 1em;
+      margin: 0 0 8px;
+      transform: translateY(-50px);
+    }
+
+    @media (--small-down) {
+      font-size: 18px;
+      line-height: 16px;
+      margin: 4px 0 12px;
+      transform: translateY(-17px);
+    }
+    @media (--mobile-only) {
+      margin-top: -30px;
+    }
+  }
+
+  .ctaButton {
+    background-color: #2175d9;
+    margin-top: 30px;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #2b7ce7;
+    }
+
+    @media (--medium-up) {
+      width: 302px;
+      font-size: 18px;
+      line-height: 0.9em;
+      margin-bottom: 12px;
+    }
+
+    @media (--small-down) {
+      width: 268px;
+    }
+    @media (--mobile-only) {
+      margin-top: 45px;
+    }
+  }
+
+  .ctaButtonText {
+    color: $brand-color-white;
+  }
+
+  .logo {
+    width: 230px;
+    margin-bottom: 12px;
+    display: none;
+
+    @media (--xlarge-down) {
+      width: 200px;
+    }
+
+    @media (--small-down) {
+      height: 72px;
+      width: auto;
+    }
+
+    &.logoDesktop {
+      @media (--small-up) {
+        display: block;
+      }
+    }
+
+    &.logoMobile {
+      @media (--small-down) {
+        display: block;
+      }
+    }
+  }
+}

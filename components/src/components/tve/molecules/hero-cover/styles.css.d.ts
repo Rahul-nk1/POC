@@ -1,6 +1,7 @@
 export const heroCoverContainer: string;
 export const metadataWideContainer: string;
 export const metadataWrapper: string;
+export const imageContainer: string;
 export const fading: string;
 export const willTween: string;
 export const cssCover: string;

@@ -19,7 +19,7 @@
     margin-bottom: 28px;
   }
 
-  opacity: 0;
+  /* opacity: 0; */
   transition: opacity 1.5s ease-out;
 
   &.show {
