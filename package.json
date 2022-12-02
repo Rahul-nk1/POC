@@ -1,0 +1,67 @@
+{
+  "private": true,
+  "name": "@discovery/tve-repo",
+  "version": "1.2.8",
+  "workspaces": [
+    "common",
+    "components",
+    "client"
+  ],
+  "scripts": {
+    "dev:tlc": "PRODUCT=tlc AUTH_DOMAIN=develop-auth-tve.concert.mercury.dnitv.com yarn workspace @discovery/tve run dev",
+    "dev": "AUTH_DOMAIN=develop-auth-tve.concert.mercury.dnitv.com yarn workspace @discovery/tve run dev",
+    "prod": "yarn workspace @discovery/tve run prod",
+    "build": "tsc --build --pretty",
+    "build:ci": "yarn workspaces run prepublishOnly && yarn workspace @discovery/tve run typecheck && NODE_ENV=production COMMIT_HASH=$(git rev-parse --short HEAD) VERSION=$npm_package_version yarn workspace @discovery/tve run build",
+    "build:ci:single": "yarn run build:ci --single",
+    "cosmos": "yarn workspace @discovery/components-tve run cosmos",
+    "cosmos:build": "yarn workspace @discovery/components-tve run cosmos:build",
+    "clean": "yarn workspaces run clean",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "lint:styles": "stylelint --rd '**/*.css'",
+    "check:all": "yarn build && yarn lint:check && yarn format:check && yarn run lint:styles",
+    "visual:test": "yarn workspace @discovery/components-tve run visual:test",
+    "visual:test-docker": "yarn workspace @discovery/components-tve run visual:test-docker",
+    "visual:reference": "yarn workspace @discovery/components-tve run visual:reference",
+    "visual:open": "yarn workspace @discovery/components-tve run visual:open",
+    "visual:approve": "yarn workspace @discovery/components-tve run visual:approve"
+  },
+  "devDependencies": {
+    "@discovery/eslint-plugin": "4.0.2",
+    "@types/styled-components": "~5.1.9",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "enquirer": "2.3.6",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "6.0.0",
+    "jscodeshift": "^0.11.0",
+    "lint-staged": "10.5.4",
+    "prettier": "2.2.1",
+    "stylelint": "^13.13.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.19.0",
+    "typescript": "4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --relative"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json}": "eslint",
+    "*.{ts,tsx,js,jsx,json,css,html,md,mdx}": "prettier --write"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

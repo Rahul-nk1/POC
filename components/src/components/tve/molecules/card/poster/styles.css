@@ -1,0 +1,183 @@
+@import "~global/css/breakpoints.css";
+@import "~brand/css/index.css";
+
+$imageZIndex: -1; /* safari z-indexing for header fix */
+$imageOverlayZIndex: 3;
+
+.primary {
+  width: calc(($grid-width-xsmall - $grid-gap * 2) * 0.774 / 2);
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.secondary {
+  width: calc(($grid-width-xsmall - calc($grid-gap-xs) * 2) / 3);
+
+  .contentTitle {
+    @media (--mobile-only) {
+      font-size: 11px;
+    }
+    @media (--tablet-only) {
+      font-size: 12px;
+    }
+  }
+  .metaRight {
+    @media (--mobile-only) {
+      margin: 2px 0 0 0;
+    }
+  }
+}
+
+.poster {
+  position: relative;
+  margin-bottom: 16px;
+
+  /* mobile sizing defined above */
+  @media (--small-up) {
+    max-width: none;
+    width: calc(($grid-width-small - $grid-gap * 3) / 4);
+  }
+  @media (--medium-up) {
+    width: calc(($grid-width-medium - $grid-gap * 4) / 5);
+  }
+  @media (--atve-desktop-start) {
+    &.primary {
+      width: calc(($grid-width-medium - $grid-gap * 5) / 6);
+    }
+  }
+  @media (--large-up) {
+    &.primary,
+    &.secondary {
+      width: calc(($grid-width-large - $grid-gap * 5) / 6);
+    }
+  }
+  @media (--xlarge-up) {
+    &.primary {
+      width: calc(($grid-width-xlarge - $grid-gap * 6) / 7);
+    }
+
+    &.secondary {
+      width: calc(($grid-width-xlarge - $grid-gap * 6) / 7);
+    }
+  }
+  @media (--xxlarge-up) {
+    &.primary {
+      width: calc(($grid-width-xxlarge - $grid-gap * 9) / 10);
+    }
+
+    &.secondary {
+      width: calc(($grid-width-xxlarge - $grid-gap * 8) / 9);
+    }
+  }
+
+  & .imageContainer {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  &:hover,
+  &:focus-within {
+    & .favoriteBtn,
+    & .metaRight {
+      opacity: 1;
+    }
+
+    & .imageContainer {
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    /* network logo is clipped 1px on hover. So this a temporary fix for that */
+    & .metaRight {
+      padding-right: 1px;
+    }
+  }
+  &:hover .imageOverlayContainer {
+    background: linear-gradient(
+      225deg,
+      $brand-color-neutral-1-alpha2,
+      transparent 32%
+    );
+  }
+}
+
+.link {
+  display: block;
+  position: relative;
+}
+
+.favoriteBtnPoster {
+  top: 12px;
+  right: 12px;
+}
+
+.borderBlock {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.imageContainer {
+  background-color: rgba(
+    229,
+    229,
+    229,
+    0.1
+  ); /* added to blend better with shimmer */
+  position: relative;
+  height: 0;
+  padding-top: 150%;
+}
+
+.imageOverlayContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $imageOverlayZIndex;
+}
+
+.metaDataBorder {
+  position: absolute;
+}
+
+.metaDataInner {
+  position: relative;
+  padding-top: 6px;
+
+  @media (--small-up) {
+    padding-top: 8px;
+  }
+}
+
+.metaLeft {
+  transform-origin: left;
+  overflow: hidden;
+}
+
+.metaRight {
+  margin: 2px 0 0 4px;
+}
+
+.metaRightLogo {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.shimmer {
+  &.imageContainer1 {
+    position: relative;
+    height: 0;
+    padding-top: 150%;
+    background-color: black;
+  }
+
+  &.metaLeft {
+    transform-origin: left;
+    background-color: black;
+  }
+
+  &.metaRight {
+    margin: 2px 0 0 4px;
+    background-color: black;
+  }
+}

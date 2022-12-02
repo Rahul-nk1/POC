@@ -1,0 +1,221 @@
+@import "~brand/css/index.css";
+
+$persistentNavItemWidth: 148px;
+$logoMaxHeight: 40px;
+$logoHeightMobile: 36px;
+$iconSize: 32px;
+
+.userMenuContainer {
+  position: absolute;
+  min-width: $persistentNavItemWidth;
+  right: 0;
+  top: 0;
+
+  transition: opacity 0.01s ease-in-out, visibility 0.01s linear 0.1s;
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
+
+  li {
+    opacity: 0;
+    transition: 1s ease-in-out;
+  }
+
+  .userDropdown {
+    transition: opacity 0.1s linear;
+    max-height: 0;
+  }
+
+  @media (--small-up) {
+    min-width: 176px;
+  }
+}
+
+.userMenu {
+  position: absolute;
+  min-width: $persistentNavItemWidth;
+  right: 0;
+  top: 0;
+
+  transition: opacity 0.01s ease-in-out, visibility 0.01s linear 0.1s;
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
+
+  li {
+    opacity: 0;
+    transition: 1s ease-in-out;
+  }
+
+  .userDropdown {
+    transition: opacity 0.1s linear;
+    max-height: 0;
+  }
+}
+
+.openMenu {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.1s ease-in-out;
+  max-height: 600px;
+  display: flex;
+
+  li {
+    opacity: 1;
+  }
+
+  .userDropdown {
+    max-height: 600px;
+  }
+}
+
+.userDropdown {
+  width: 100%;
+  border-radius: 2px;
+  padding-top: $header-height;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
+  border: solid 1px rgba(89, 89, 89, 0.2);
+  background: $brand-color-grey-10;
+  position: absolute;
+  overflow: hidden;
+  right: 0;
+  top: 0;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  color: $brand-color-white;
+  background: none;
+  border: none;
+  position: relative;
+
+  text-decoration: none;
+  transition: opacity 0.3s ease-in-out;
+  height: $header-height;
+  opacity: 1;
+  padding-left: 16px;
+  width: 100%;
+  box-sizing: border-box;
+
+  &.hide {
+    display: none;
+  }
+
+  .providerName {
+    width: 100px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.4);
+    color: $brand-color-neutral-10-alpha5;
+    transition: all 0.6s ease-out;
+  }
+
+  &.lockHoverBackground {
+    &:hover {
+      background: none;
+    }
+  }
+
+  a {
+    color: $brand-color-white;
+    text-decoration: none;
+  }
+
+  * {
+    white-space: nowrap;
+  }
+
+  /* Bit of a hack, but we need this because we don't have rhs padding in the
+     nav as the dropdown would not float properly if we did. */
+  padding-right: $nav-margin-xxsmall;
+
+  justify-content: flex-start;
+
+  @media (--mobile-only) {
+    /* padding-left: $grid-gap-xs; */
+    padding-left: 16px;
+    justify-content: space-between;
+  }
+  @media (--xsmall-up) {
+    justify-content: space-between;
+    padding-right: $grid-margin-xsmall;
+  }
+  @media (--small-up) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media (--medium-up) {
+    justify-content: flex-start;
+    padding-right: $grid-margin-medium;
+  }
+  @media (--large-up) {
+    padding-right: $grid-margin-large;
+    padding-left: 32px;
+  }
+  @media (--xlarge-up) {
+    padding-right: $grid-margin-xlarge;
+  }
+}
+
+.hoverable {
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.affiliateLogo {
+  height: 20px;
+  margin-right: 10px;
+
+  @media (--mobile-only) {
+    max-width: 55px;
+    max-height: 18px;
+    height: 18px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    margin-right: 2px;
+  }
+}
+
+.hideExtraSmall {
+  @media (--xsmall-down) {
+    display: none;
+  }
+}
+
+.auth {
+  display: block;
+  padding: 20px 16px;
+  color: $brand-color-white;
+  text-decoration: none;
+
+  @media (--small-up) {
+    padding: 20px 24px;
+  }
+  @media (--large-up) {
+    padding-left: 32px;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.4); /* TODO: change to var */
+  }
+
+  p {
+    margin-left: 0;
+  }
+
+  .icon {
+    height: $iconSize; /* does not grow to $iconSizeLarge */
+  }
+}
+
+.linkUnlinkParagraph {
+  white-space: nowrap;
+  @media (--mobile-only) {
+    font-size: 11px;
+  }
+}

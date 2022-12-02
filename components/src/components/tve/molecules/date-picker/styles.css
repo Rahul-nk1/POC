@@ -1,0 +1,11 @@
+@import "~global/css/utils.css";
+
+.slider {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.spacer {
+  @mixin spacer 24px;
+}

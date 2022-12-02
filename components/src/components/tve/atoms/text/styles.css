@@ -1,0 +1,140 @@
+@import "~brand/css/breakpoints.css";
+@import "~brand/css/text.css";
+
+.kind__menubar,
+.kind__menubar____size__m {
+  @extend %brand-menu-bar;
+}
+
+.kind__marketing____size__subtitle {
+  @extend %brand-marketing-subtitle;
+}
+
+.kind__marketing____size__title {
+  @extend %brand-marketing-title;
+}
+
+.kind__card____size__m,
+.kind__card____size__title {
+  @extend %brand-rail-card-title;
+}
+
+.kind__title____size__m {
+  @extend %brand-title-m;
+}
+
+.kind__title____size__s {
+  @extend %brand-title-s;
+}
+
+.kind__section____size__l {
+  @extend %brand-section-l;
+}
+
+.kind__subtitle____size__l {
+  @extend %brand-subtitle-l;
+}
+
+.kind__subtitle____size__s {
+  @extend %brand-subtitle-s;
+}
+
+.kind__body____size__l {
+  @extend %brand-body-l;
+}
+
+.kind__body____size__m {
+  @extend %brand-body-m;
+}
+
+.kind__body____size__s {
+  @extend %brand-body-s;
+}
+
+.kind__body____size__xs {
+  @extend %brand-body-xs;
+}
+
+.kind__body____size__xxs {
+  @extend %brand-body-xxs;
+}
+
+.kind__label____size__title {
+  @extend %brand-label-title;
+}
+
+.kind__label____size__helper {
+  @extend %brand-label-helper;
+}
+
+.kind__button____size__m {
+  @extend %brand-button-m;
+}
+
+.kind__button____size__s {
+  @extend %brand-button-s;
+}
+
+.kind__microcopy {
+  @extend %brand-microcopy;
+}
+
+/*
+  The mapping is following mozilla standard
+  https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Common_weight_name_mapping
+*/
+
+.weight__thin,
+.weight__hairline {
+  font-weight: 100;
+}
+
+.weight__extraLight,
+.weight__ultraLight {
+  font-weight: 200;
+}
+
+.weight__light {
+  font-weight: 300;
+}
+
+.weight__normal,
+.weight__regular {
+  font-weight: normal;
+}
+
+.weight__medium {
+  font-weight: 500;
+}
+
+.weight__semiBold,
+.weight__demiBold {
+  font-weight: 600;
+}
+
+.weight__bold {
+  font-weight: 700;
+}
+
+.weight__extraBold,
+.weight__ultraBold {
+  font-weight: 800;
+}
+
+.weight__black,
+.weight__heavy {
+  font-weight: 900;
+}
+
+.weight__extraBlack,
+.weight__ultraBlack {
+  font-weight: 950;
+}
+
+.decoration__underline {
+  text-decoration: underline;
+}
+
+.style__italic {
+  font-style: italic;
+}

@@ -1,0 +1,119 @@
+@import "~brand/css/index.css";
+
+$handleZ: 2;
+$contentZ: 1;
+$handleHeight: 48px;
+
+$portalTransitionTime: 200ms;
+$portalTransitionTimeHalf: 200ms;
+$borderRadius: 6px 6px 0 0;
+
+:export {
+  transitionTime: $portalTransitionTime; /* stylelint-disable-line */
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  transition: opacity $portalTransitionTime linear;
+  animation: showOverlay $portalTransitionTime linear;
+
+  &.hide {
+    opacity: 0;
+  }
+}
+
+.bottomDrawer {
+  bottom: 0;
+  left: 0;
+  background-color: $brand-color-neutral-10;
+  width: 100%;
+  border-radius: $borderRadius;
+  position: fixed;
+  animation: revealDrawer $portalTransitionTime ease-in-out;
+  max-height: 100vh;
+
+  &.hide {
+    animation: hideDrawer $portalTransitionTime ease-in-out;
+    animation-direction: forward;
+    transform: translateY(100%);
+  }
+
+  &.transition {
+    transition: transform $portalTransitionTimeHalf ease-in-out;
+  }
+}
+
+/**
+ *  ALL portal reveal animations NEED to be animations, they CANNOT be class
+ *  based transitions. This is because the component will be rendered to virtual
+ *  dom, then a .reveal class will be applied, THEN the component is added to
+ *  the real dom, already in .reveal'ed state. No transition occurs.
+ *
+ *  Animations (using keyframes) are guaranteed to happen at the start of
+ *  HTMLElement existence in the real dom.
+ */
+@keyframes showOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes revealDrawer {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideDrawer {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.drawerContent {
+  position: relative;
+  z-index: $contentZ;
+  max-height: 100%;
+  overflow: auto;
+  padding-top: $handleHeight;
+  border-radius: $borderRadius;
+}
+
+.dragHandle {
+  pointer-events: all;
+  border-radius: $borderRadius;
+  height: $handleHeight;
+  width: 100%;
+  z-index: $handleZ;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &:after {
+    background-color: $brand-color-neutral-7;
+    border-radius: 2px;
+    content: "";
+    height: 4px;
+    left: 50%;
+    margin-left: -15px;
+    position: absolute;
+    top: 12px;
+    width: 30px;
+  }
+}

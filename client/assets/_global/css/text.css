@@ -1,0 +1,310 @@
+/* @TODO -- abstract for brand overrides */
+@import "./fonts.css";
+
+/* brand-title-m */
+%brand-title-m {
+  font-family: $brand-font-primary;
+  font-size: 46px;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+@media (--tablet-only) {
+  %brand-title-m {
+    font-size: 42px;
+    line-height: 1.19;
+  }
+}
+
+@media (--mobile-only) {
+  %brand-title-m {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+}
+
+/* brand-title-s */
+
+%brand-title-s {
+  font-family: $brand-font-primary;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+@media (--tablet-only) {
+  %brand-title-s {
+    font-size: 28px;
+    line-height: 1.43;
+  }
+}
+
+@media (--mobile-only) {
+  %brand-title-s {
+    font-size: 24px;
+    line-height: 1.333333;
+  }
+}
+
+/* brand-section-l */
+
+%brand-section-l {
+  font-family: $brand-font-primary;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@media (--tablet-only) {
+  %brand-section-l {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+}
+
+@media (--mobile-only) {
+  %brand-section-l {
+    font-size: 20px;
+    line-height: 1.33;
+  }
+}
+
+/* brand-subtitle-l */
+
+%brand-subtitle-l {
+  font-family: $brand-font-primary;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 0.0075em;
+}
+
+@media (--tablet-only) {
+  %brand-subtitle-l {
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.0083333em; /* about 0.15px */
+  }
+}
+
+@media (--mobile-only) {
+  %brand-subtitle-l {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.00625em; /* about 0.1px */
+  }
+}
+
+/* brand-subtitle-s */
+
+%brand-subtitle-s {
+  font-family: $brand-font-primary;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.67;
+}
+
+@media (--mobile-only) {
+  %brand-subtitle-s {
+    font-size: 14px;
+    line-height: 1.71;
+  }
+}
+
+/* brand-body-l */
+
+%brand-body-l {
+  font-family: $brand-font-primary;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.56;
+  letter-spacing: 0.016667em; /* about 0.3px */
+}
+
+@media (--mobile-only) {
+  %brand-body-l {
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: 0.041875em; /* about 0.67px */
+  }
+}
+
+/* brand-body-m-heavy */
+
+%brand-body-m-heavy {
+  font-family: $brand-font-primary;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.03125em;
+}
+
+@media (--tablet-only) {
+  %brand-body-m-heavy {
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.03142em; /* about 0.44px */
+  }
+}
+
+@media (--mobile-only) {
+  %brand-body-m-heavy {
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.0316667em; /* about 0.38px */
+  }
+}
+
+/* brand-body-m */
+
+%brand-body-m {
+  font-family: $brand-font-primary;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  letter-spacing: 0.03125em; /* about 0.5px */
+  /* @TODO: maybe we can change all these letter-spacing from em to px, so it
+     matches design, making for a smoother development effort
+   */
+}
+
+@media (--mobile-only) {
+  %brand-body-m {
+    font-size: 12px;
+    line-height: 1.67;
+    letter-spacing: 0.04166666667em; /* about 0.5px */
+  }
+}
+
+/* brand-body-s */
+
+%brand-body-s {
+  font-family: $brand-font-primary;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.71;
+  letter-spacing: 0.01785714286em;
+}
+
+@media (--mobile-only) {
+  %brand-body-s {
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.012em;
+  }
+}
+
+/* brand-body-xs */
+
+%brand-body-xs {
+  font-family: $brand-font-primary;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.71;
+  letter-spacing: 0.01785714286em;
+}
+
+@media (--mobile-only) {
+  %brand-body-xs {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.02083333333em; /* about 0.5px */
+  }
+}
+
+/**
+  * TODO -- 'xxs' size variant used here and in comps,
+  * but not in official web type ramp (please rectify with design)
+  *
+  * comp - https://app.zeplin.io/project/5e583f939b80ce69bc0255b7/screen/5eb58c8086e8977379393641
+  * prototype - https://s3.amazonaws.com/ddp.t.dsc.tv/ATVE-testing/atve-web-all-shows/v3/all-shows-v5.html
+  */
+
+%brand-body-xxs {
+  font-family: $brand-font-primary;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.33;
+  letter-spacing: 0.01666666667em; /* about 0.4px */
+}
+
+/* brand-label-title */
+
+%brand-label-title {
+  font-family: $brand-font-primary;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: 0.03333333333em;
+
+  @media (--tablet-only) {
+    font-size: 10px;
+  }
+}
+
+/* brand-label-helper */
+
+%brand-label-helper {
+  font-family: $brand-font-primary;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: 0.03333333333em;
+}
+
+/* brand-button-medium */
+
+%brand-button-m {
+  font-family: $brand-font-primary;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+/* brand-button-small */
+
+%brand-button-s {
+  font-family: $brand-font-primary;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 0.05357142857em; /* ~0.75px */
+}
+
+/* brand-microcopy */
+
+%brand-microcopy {
+  font-family: $brand-font-primary;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: 0.09090909091em; /* ~0.75px */
+}
+
+/* brand - rail/grid titles
+    TODO -- rectify one-off styles
+      - since poster and episode/standard cards need to have the same
+        font-sizes (for consistency), but 14px is too small, 16px is too big
+      -> compromise at 15px
+      -> BUT breaks consistency with web type ramp */
+%brand-rail-card-title {
+  @extend %brand-body-m;
+
+  font-size: 15px;
+}
+
+/* brand - rail/grid titles - mobile
+      -> can share size with %brand-body-m */
+@media (--mobile-only) {
+  %brand-rail-card-title {
+    @extend %brand-body-m;
+  }
+}
+
+%brand-menu-bar {
+  font-family: $brand-font-primary;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.71;
+}

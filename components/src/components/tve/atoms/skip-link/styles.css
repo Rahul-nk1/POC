@@ -1,0 +1,31 @@
+@import "~brand/css/index.css";
+
+.skipLink {
+  background-color: $brand-color-neutral-10;
+  color: $brand-color-black;
+  position: absolute;
+  border-radius: 2px;
+  font-family: $brand-font-secondary;
+  font-size: 14px;
+  margin: 8px 0 0 8px;
+  opacity: 0;
+  padding: 12px;
+  text-decoration: none;
+  transform: translateX(-150%);
+  transition: 0.2s ease-in;
+  z-index: 100;
+
+  && {
+    width: auto;
+    height: auto;
+  }
+
+  &:visited {
+    color: $brand-color-black;
+  }
+
+  &:focus {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

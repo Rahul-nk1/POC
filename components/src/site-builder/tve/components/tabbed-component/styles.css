@@ -1,0 +1,65 @@
+@import "~brand/css/index.css";
+@import "~global/css/breakpoints.css";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  background: $brand-body-gradient;
+  background-attachment: fixed;
+  padding-bottom: 96px;
+
+  @media (--medium-up) {
+    padding-bottom: 120px;
+  }
+}
+
+.networkTabs {
+  position: relative;
+  padding-top: 80px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 1px $brand-network-selector-bottom-border-color;
+  box-shadow: 0 2px 8px 0 rgba($brand-color-dark, 0.6);
+  background: $brand-network-selector-gradient-mobile;
+  height: 96px;
+
+  @media (--small-up) {
+    height: 120px;
+    background: $brand-network-selector-gradient-tablet;
+  }
+
+  @media (--medium-up) {
+    height: 140px;
+    padding-top: 110px;
+    background: $brand-network-selector-gradient;
+  }
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $grid-width-xsmall;
+  box-sizing: border-box;
+  height: 96px;
+
+  @media (--small-up) {
+    height: 120px;
+    width: $grid-width-small;
+  }
+  @media (--medium-up) {
+    max-width: 1200px;
+    height: 140px;
+    width: $grid-width-medium;
+  }
+  @media (--large-up) {
+    width: $grid-width-large;
+  }
+  @media (--xlarge-up) {
+    width: $grid-width-xlarge;
+  }
+}

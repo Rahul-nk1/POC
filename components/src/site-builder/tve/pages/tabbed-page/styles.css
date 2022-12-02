@@ -1,0 +1,13 @@
+@import "~brand/css/index.css";
+
+.container {
+  width: 100%;
+  font-family: $brand-body-font-family;
+  background: $brand-body-gradient;
+  background-attachment: fixed;
+  color: $brand-body-fg;
+
+  a {
+    color: inherit;
+  }
+}

@@ -1,0 +1,19 @@
+/* TODO -- consolidate these since they're  basically the same value
+      - due to the impact these variables have, we're leaving them here
+        for now, to prevent against regressions */
+
+/* Basic hero */
+$b-hero-height--xsmall: 460px;
+$b-hero-height--small: 460px;
+$b-hero-height--medium: 80vh;
+$b-hero-height--large: 80vh;
+$b-hero-height--full-screen: 80vh;
+$b-hero-height--min: 460px;
+
+/* Compact hero */
+$c-hero-height--xsmall: 460px;
+$c-hero-height--small: 460px;
+$c-hero-height--medium: 65vh;
+$c-hero-height--large: 65vh;
+$c-hero-height--full-screen: 65vh;
+$c-hero-height--min: 460px;

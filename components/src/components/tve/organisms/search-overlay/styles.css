@@ -1,0 +1,46 @@
+@import "~brand/css/index.css";
+
+.searchOverlay {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: $header-height;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  background: $brand-body-gradient;
+  background-attachment: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  animation-name: revealSearch;
+  animation-duration: 50ms;
+}
+
+@keyframes revealSearch {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.searchInput {
+  margin-top: 72px;
+  @media (--small-up) {
+    margin-top: 86px;
+  }
+  @media (--medium-up) {
+    margin-top: 96px;
+  }
+}
+
+.scrollTrigger {
+  height: 2px;
+  margin: 2px;
+  width: 2px;
+  position: absolute;
+}

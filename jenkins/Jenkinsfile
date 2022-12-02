@@ -1,0 +1,24 @@
+properties([pipelineTriggers([githubPush()])])
+
+pipeline {
+    agent any
+    stages {
+        stage("StartJob") {
+            steps {
+             
+                script {
+
+                    env.JobBaseDir = sh(returnStdout: true, script: 'printf $JOB_NAME | rev | cut -d "/" -f3- | rev').trim()
+
+                    env.CLIENT = sh(returnStdout: true, script: 'printf $JOB_NAME | rev | cut -d "/" -f2 | rev | cut -d "-" -f2').trim()
+
+                }
+
+                build(job: "${env.JobBaseDir}/compile-clients-tve", wait: false, parameters: [string(name: 'BRANCH', value: "${env.GIT_BRANCH}"),string(name: 'CLIENT', value: "${env.CLIENT}"),string(name: 'COMMIT', value: "${env.GIT_COMMIT}")] )
+                
+                build(job: "${env.JobBaseDir}/compile-cosmos", wait: false, parameters: [string(name: 'BRANCH', value: "${env.GIT_BRANCH}"),string(name: 'CLIENT', value: "${env.CLIENT}")] )
+
+            }
+        }
+    }
+}

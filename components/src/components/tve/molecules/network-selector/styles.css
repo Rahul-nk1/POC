@@ -1,0 +1,85 @@
+@import "~brand/css/index.css";
+
+.container {
+  margin-bottom: 32px;
+}
+
+.networkTabs {
+  position: relative;
+  padding-top: 80px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 1px $brand-network-selector-bottom-border-color;
+  box-shadow: 0 2px 8px 0 rgba($brand-color-dark, 0.6);
+  background: $brand-network-selector-gradient-mobile;
+
+  @media (--small-up) {
+    background: $brand-network-selector-gradient-tablet;
+  }
+
+  @media (--medium-up) {
+    padding-top: 110px;
+    background: $brand-network-selector-gradient;
+  }
+}
+
+.subtabsWrapper {
+  margin: 0 auto;
+  width: $grid-width-xsmall;
+
+  @media (--small-up) {
+    width: $grid-width-small;
+  }
+  @media (--medium-up) {
+    width: $grid-width-medium;
+  }
+  @media (--large-up) {
+    width: $grid-width-large;
+  }
+  @media (--xlarge-up) {
+    width: $grid-width-xlarge;
+  }
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $grid-width-xsmall;
+  box-sizing: border-box;
+  height: 96px;
+
+  & .moreButton {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:hover {
+      transform: scale(1.1) translateY(-50%);
+      background-color: $brand-color-neutral-1-alpha8;
+      box-shadow: 0 8px 16px $brand-color-neutral-1-alpha2,
+        0 8px 16px $brand-color-neutral-1-alpha2;
+    }
+  }
+
+  @media (--small-up) {
+    height: 120px;
+    width: $grid-width-small;
+  }
+  @media (--medium-up) {
+    max-width: 1200px;
+    height: 140px;
+    width: $grid-width-medium;
+  }
+  @media (--large-up) {
+    width: $grid-width-large;
+  }
+  @media (--xlarge-up) {
+    width: $grid-width-xlarge;
+  }
+  @media (--xxlarge-up) {
+    max-width: 1600px;
+  }
+}
+
+.spacer {
+  @mixin spacer 8px;
+}

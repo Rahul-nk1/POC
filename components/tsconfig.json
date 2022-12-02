@@ -1,0 +1,14 @@
+{
+  "extends": "@discovery/tsconfig-ng/tsconfig.json",
+  "include": ["src/**/*", "src/**/*.json"],
+  "exclude": ["lib"],
+
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
+    "types": [],
+    "noUncheckedIndexedAccess": true
+  },
+
+  "references": [{ "path": "../common" }]
+}

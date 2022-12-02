@@ -1,0 +1,14 @@
+@import "~brand/css/index.css";
+
+.durationRatingAirdate {
+  color: $brand-color-neutral-8;
+  letter-spacing: 0.25px;
+
+  > span + span {
+    margin-left: 1.2em;
+  }
+
+  @media (--small-up) {
+    line-height: 1.43;
+  }
+}

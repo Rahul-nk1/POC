@@ -1,0 +1,145 @@
+@import "~global/css/breakpoints.css";
+
+.wrapper {
+  width: 100%;
+  padding: 182px 0 40px;
+  margin-bottom: 72px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  text-align: center;
+  position: relative;
+  @media (--large-down) {
+    h1,
+    p {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  h1 {
+    margin-bottom: 16px;
+    font-size: 36px;
+    font-weight: 600;
+  }
+}
+
+.primaryLink {
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 2px;
+  &:hover {
+    text-decoration: underline;
+  }
+  svg {
+    width: 12px;
+    height: 12px;
+    margin-left: 6px;
+  }
+}
+
+.chevron {
+  transform: rotate(90deg);
+}
+
+.activeChevron {
+  transform: rotate(-90deg);
+}
+
+.collapsed {
+  padding-bottom: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+.subHeader {
+  margin: 0 auto 30px auto;
+  max-width: 860px;
+  a {
+    @media (--large-down) {
+      margin-top: 12px;
+      display: block;
+    }
+  }
+}
+
+.subscribeButton {
+  font-size: 16px;
+  margin: 24px 0 48px;
+  svg {
+    height: 20px;
+  }
+}
+
+.logos {
+  grid-column: 1;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: auto auto auto auto;
+  padding-bottom: 32px;
+  @media (--medium-down) {
+    grid-template-columns: auto;
+  }
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h3 {
+    margin: 8px 0 16px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  li {
+    padding: 0 40px;
+  }
+}
+
+.subscriptionIncluded {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 32px 64px;
+}
+
+.learnMoreTitle {
+  text-transform: uppercase;
+  margin-bottom: 45px;
+  font-weight: 600;
+  padding: 0 0 32px;
+  height: 8px;
+  text-align: center;
+  span {
+    padding: 0 10px;
+  }
+}
+
+.divider {
+  vertical-align: middle;
+  margin-left: 16px;
+  width: 1px;
+  display: inline-block;
+  height: 32px;
+}
+
+.faq {
+  font-size: 16px;
+  text-align: left;
+  margin-left: 99px;
+  @media (--large-down) {
+    margin: auto;
+    text-align: center;
+  }
+  a {
+    font-weight: normal;
+    text-transform: none;
+    margin-left: 16px;
+    text-decoration: none;
+    letter-spacing: normal;
+    svg {
+      margin-left: 8px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

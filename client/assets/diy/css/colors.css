@@ -1,0 +1,28 @@
+@import "../../_global/css/colors/index.css";
+
+$brand-color-primary: #e6ac0f;
+$brand-color-highlight: #6a6a6a;
+$brand-color-light: #2a2a2a;
+$brand-color-medium: #1a1a1a;
+$brand-color-dark: #0a0a0a;
+
+$brand-color-primary-base: #000; /* TODO: Remove, it's not in the brand palette */
+
+$body-link-fg: $brand-color-white;
+
+$brand-body-bg: $brand-color-dark;
+$brand-body-fg: $brand-color-white;
+
+$brand-button-bg: $brand-color-white;
+
+$brand-header-bg: $brand-color-primary-base;
+$brand-header-nav-link-fg: $brand-color-white;
+
+$brand-footer-bg: $brand-color-primary-base;
+$brand-footer-fg: $brand-color-grey-90;
+$brand-footer-copyright-bg: $brand-color-primary-base;
+$brand-footer-copyright-fg: $brand-color-grey-65;
+$brand-footer-link-fg: $brand-color-grey-65;
+
+$brand-search-input-bg: $brand-color-grey-25;
+$brand-search-fg: $brand-color-white;

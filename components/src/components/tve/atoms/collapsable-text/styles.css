@@ -1,0 +1,19 @@
+@import "~brand/css/index.css";
+
+.more {
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.textContainer {
+  height: auto;
+  transition: height 0.2s ease-in-out;
+
+  overflow: hidden;
+  font-family: $brand-font-primary;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}

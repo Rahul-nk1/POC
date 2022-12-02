@@ -1,0 +1,50 @@
+@import "~brand/css/colors.css";
+
+$brand-header-bg-gradient: linear-gradient(
+  to bottom,
+  rgba($brand-color-dark, 0.5) 30%,
+  transparent
+);
+
+$brand-body-gradient: linear-gradient(
+  120deg,
+  $brand-color-dark,
+  $brand-color-light
+);
+
+$brand-hero-overlay-bg: linear-gradient(
+  to right,
+  rgba($brand-color-neutral-1, 0.73),
+  transparent
+);
+$brand-hero-overlay-bg-small: linear-gradient(
+  0deg,
+  rgba($brand-color-neutral-1, 0.73),
+  transparent
+);
+
+$brand-network-selector-gradient: radial-gradient(
+  circle,
+  $brand-color-light 8%,
+  $brand-color-medium 32%,
+  $brand-color-medium 60%,
+  $brand-color-dark 140%
+);
+
+$brand-network-selector-gradient-tablet: radial-gradient(
+  circle,
+  $brand-color-light 8%,
+  $brand-color-medium 50%,
+  $brand-color-medium 72%,
+  $brand-color-dark 140%
+);
+
+$brand-network-selector-gradient-mobile: radial-gradient(
+  circle,
+  $brand-color-light 8%,
+  $brand-color-medium 70%,
+  $brand-color-medium 88%,
+  $brand-color-dark 140%
+);
+
+$brand-network-selector-bottom-border-color: rgba($brand-color-highlight, 0.16);

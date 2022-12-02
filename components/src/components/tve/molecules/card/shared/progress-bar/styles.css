@@ -1,0 +1,23 @@
+@import "~global/css/breakpoints.css";
+@import "~global/css/colors.css";
+
+.progressBarContainer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: $brand-color-neutral-10-alpha3;
+}
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $brand-color-neutral-10;
+
+  &.completed {
+    background-color: $brand-color-neutral-10;
+  }
+}

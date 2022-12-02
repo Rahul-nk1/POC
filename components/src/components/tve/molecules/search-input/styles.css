@@ -1,0 +1,85 @@
+@import "~brand/css/index.css";
+
+.searchInputContainer {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+
+  @media (--small-up) {
+    width: 688px;
+  }
+}
+
+.searchInputContainer input {
+  appearance: unset;
+  font: 12px/20px $brand-font-primary;
+  border: none;
+  border-bottom: 1px solid rgba($brand-color-neutral-9, 0.2);
+  background-color: rgba($brand-color-neutral-1, 0.4);
+  box-shadow: 0 6px 12px rgba($brand-color-neutral-1, 0.2);
+  border-radius: 2px 2px 0 0;
+  padding: 12px 40px 12px 48px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: 12px 6px;
+  background-image: $brand-icon-search-white;
+  background-size: 32px;
+  color: $brand-color-neutral-10;
+  z-index: $z-component-stack;
+  margin-top: calc(96px + $header-height);
+
+  @media (--small-up) {
+    font: 16px/24px $brand-font-primary;
+    padding: 16px 40px 16px 64px;
+    max-width: 720px;
+    background-size: 44px;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+.searchInputContainer input:focus {
+  background-color: $brand-color-neutral-1-alpha3;
+  border-bottom: 1px solid rgba($brand-color-neutral-10, 0.3);
+  box-shadow: 0 2px 4px 0 rgba($brand-color-neutral-1, 0);
+  background-image: $brand-icon-search-white;
+  color: $brand-color-neutral-10;
+  outline-width: 0;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  & + .searchClearIcon {
+    background-image: $brand-icon-cross-white;
+  }
+}
+
+.searchInputContainer input::placeholder {
+  text-align: left;
+  color: $brand-color-neutral-10;
+  opacity: 0.5;
+}
+
+.searchInputContainer input:focus::placeholder {
+  color: $brand-color-neutral-10;
+}
+
+.searchClearIcon {
+  height: 33px;
+  position: absolute;
+  background-image: $brand-icon-cross-white;
+  right: 8px;
+  top: 160px;
+  width: 33px;
+  cursor: pointer;
+  z-index: 1100;
+
+  @media (--small-up) {
+    right: 12px;
+    top: 166px;
+  }
+}

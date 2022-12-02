@@ -1,0 +1,12 @@
+{
+  "rootDir": "src",
+  "exportPath": "../cosmos-export",
+  "watchDirs": ["src"],
+  "webpack": {
+    "configPath": "../webpack.config"
+  },
+  "globalImports": [
+    "../../common/src/base.css",
+    "../../client/assets/brand-index.css"
+  ]
+}

@@ -1,0 +1,39 @@
+.toastContainer {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reveal {
+  animation: insert 0.45s ease-out;
+  animation-timing-function: cubic-bezier(0.5, 0.4, 0.5, 1.2);
+}
+
+.hide {
+  animation: remove 0.32s ease-in;
+  animation-fill-mode: forward;
+  opacity: 0;
+}
+
+@keyframes insert {
+  from {
+    transform: translate(0%, 100px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes remove {
+  from {
+    transform: translate(0%, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(0%, 100px);
+    opacity: 0.2;
+  }
+}

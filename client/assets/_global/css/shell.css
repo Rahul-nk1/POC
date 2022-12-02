@@ -1,0 +1,47 @@
+@import "./fonts/import.css";
+@import "~brand/css/index.css";
+
+/* * *
+ * Add styles that apply to the page shell (assets/index.html) here
+ * * */
+
+:global body {
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+:global #shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Keeps footer at the bottom of the viewport */
+}
+
+:global #header,
+:global #footer {
+  flex-shrink: 1;
+}
+
+:global #header {
+  z-index: 2;
+}
+
+:global #app {
+  flex-grow: 1;
+  z-index: 1;
+  display: flex;
+}
+
+:global #portal-group {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-portal-group;
+}
+
+:global body.scrollLock {
+  overflow-y: hidden;
+}
+
+:global body.scrollLock #app {
+  overflow-y: hidden;
+}

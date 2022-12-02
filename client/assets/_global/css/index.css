@@ -1,0 +1,10 @@
+/* import global assets - brands can override these by overwriting any given variable */
+
+@import "./utils.css";
+@import "./breakpoints.css";
+@import "./colors/index.css";
+@import "./colors/gradients.css";
+@import "./fonts.css";
+@import "./icons.css";
+/* @import "./text.css"; */
+@import "./vars.css";

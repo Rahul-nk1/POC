@@ -1,0 +1,49 @@
+@import "~brand/css/index.css";
+
+.badge {
+  background-color: $brand-color-neutral-10;
+  border-radius: 1px;
+  color: $brand-color-black;
+  height: 20px;
+  line-height: 12px;
+  letter-spacing: 0.4px;
+  font-family: $brand-font-primary;
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+
+  @media (--small-down) {
+    max-width: 18ch;
+    word-break: break-all;
+    letter-spacing: 0.2px;
+    padding: 2px 4px;
+    height: auto;
+    min-height: 16px;
+
+    span {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.badgeContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $brand-color-neutral-10;
+
+  .badge {
+    position: static;
+    min-height: 20px;
+    height: auto;
+  }
+}

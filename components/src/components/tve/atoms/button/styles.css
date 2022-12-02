@@ -1,0 +1,72 @@
+@import "~brand/css/index.css";
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $brand-color-neutral-10;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 12px 20px 12px 12px;
+
+  & .inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    color: $brand-color-neutral-2;
+  }
+
+  &.dark {
+    background-color: $brand-color-neutral-1;
+
+    & .inner {
+      color: $brand-color-neutral-10;
+    }
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.text {
+  background: none;
+  text-decoration: none;
+  padding: 0;
+
+  & .inner {
+    color: $brand-color-neutral-8;
+    margin: 0;
+  }
+}
+
+/* Type */
+.contained {
+  border-width: 0;
+}
+
+.outlined {
+  color: $brand-color-neutral-10;
+  border: 1px $brand-color-neutral-10 solid;
+  background: none;
+  text-decoration: none;
+
+  & .inner {
+    color: inherit;
+  }
+}
+
+/* Icon */
+.icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+}

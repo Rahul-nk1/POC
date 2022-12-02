@@ -1,0 +1,27 @@
+/* @TODO - only used for DTC / D+ but need to exist globally because all brands get built at once */
+$profile-padding: 22px;
+$sub-nav-offset: 86px;
+$sub-nav-height: 35px;
+
+/* z-index values based on https://medium.com/science-journal/z-index-organization-in-css-5913fd4c25c9 */
+$z-component: 1000;
+$z-component-stack: 1100;
+$z-component-overlay: 2000;
+$z-component-overlay-stack: 2100;
+$z-component-view-all: 2200;
+$z-component-view-all-stack: 2300;
+$z-portal-group: 5000;
+
+$z-container: 10;
+
+$z-primary-navigation: 5000;
+$z-primary-navigation-overlay: 5100;
+
+$z-sticky-navigation: 4900;
+
+$default-letter-spacing: 1px;
+
+$header-height: 60px;
+
+$schedule-empty-container-height: 160px;
+$schedule-options-carousel-height: 6.4em;

@@ -1,0 +1,208 @@
+@import "~brand/css/index.css";
+
+$icon-width: 24px;
+$icon-height: 24px;
+$icon-width-sm: 14px;
+$icon-height-sm: 14px;
+$icon-width-trans: 32px;
+$icon-height-trans: 32px;
+
+$animation-time: 0.25s;
+
+.myListButtonContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  vertical-align: middle;
+  flex-direction: row;
+}
+
+.fixtureContainer {
+  background-color: purple;
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  appearance: none;
+  outline-width: 0;
+  transition: all $animation-time ease-in-out;
+  cursor: pointer;
+
+  &.accessibleOutline {
+    outline-width: unset;
+  }
+
+  &.add,
+  &.remove {
+  }
+  &.remove {
+    .checkmark {
+      .line2 {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(45deg) translate(15px, 9px) scale(1, 0.9);
+      }
+      .line1 {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(40deg) translate(3px, 20px) scale(0.5, 1);
+      }
+    }
+  }
+  &:active .iconWrapper,
+  &.addForce .iconWrapper,
+  &.removeForce .iconWrapper {
+    transform: scale(1.166667);
+  }
+  &:hover {
+    .checkmark {
+      .line2 {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(45deg) translate(15px, 9px) scale(1, 0.9);
+      }
+      .line1 {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(40deg) translate(3px, 20px) scale(0.5, 1);
+      }
+    }
+  }
+  &:active {
+    .checkmark {
+      opacity: 0.6;
+      transition: opacity 0.25s ease-in-out;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover .iconWrapper {
+      animation: none;
+      transform: scale(1.166667);
+    }
+  }
+}
+
+.buttonContents {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.label {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-left: 4px;
+  font-family: $brand-font-primary;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.25;
+
+  @media (--small-up) {
+    padding-left: 4px;
+    font-size: 16px;
+  }
+
+  &.hero {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.56;
+    letter-spacing: 0.75px;
+
+    @media (--small-down) {
+      font-size: 12px;
+      letter-spacing: 0.25px;
+    }
+  }
+
+  &.light {
+    color: $brand-color-neutral-10;
+  }
+
+  &.dark {
+    color: $brand-color-neutral-1;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  min-width: 1em;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: 5px;
+  border-radius: calc(2 * $icon-height);
+  transition: all $animation-time ease-in-out;
+
+  &.dark .checkmark {
+    padding: 0;
+    circle {
+      fill: $brand-color-neutral-1;
+    }
+  }
+}
+
+.icon {
+  display: block;
+  width: $icon-width-sm;
+  height: $icon-height-sm;
+  background-repeat: no-repeat;
+  /* To fix issue - https://discoveryinc.atlassian.net/browse/AWC-548 for safari browser, transition needs to be removed.*/
+  transition: none;
+}
+
+.plus {
+  &.light {
+    background-image: $brand-icon-check-grey;
+  }
+
+  &.dark {
+    background-image: $brand-icon-plus-white;
+  }
+}
+
+.check {
+  &.light {
+    background-image: $brand-icon-check-grey;
+    background-position: center;
+  }
+
+  &.dark {
+    background-image: $brand-icon-check-white;
+  }
+}
+
+.opaque {
+  opacity: 1;
+}
+
+.checkmark {
+  width: $icon-width-trans;
+  height: $icon-height-trans;
+  display: block;
+  padding: 3px 0 0;
+  @media (--small-down) {
+    width: $icon-width;
+    height: $icon-height;
+  }
+  .line2 {
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+    transform: translate(12px, 12px);
+  }
+  .line1 {
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+    transform: translate(12px, 12px);
+  }
+}

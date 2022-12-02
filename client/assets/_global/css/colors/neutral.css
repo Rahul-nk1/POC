@@ -1,0 +1,54 @@
+$brand-color-black: #000;
+$brand-color-white: #fff;
+
+/* these are rough percentage neutral/greys (e.g., 4/16 => 25%, 5.3/16 => 33%, etc.) */
+$brand-color-grey-10: #181818;
+$brand-color-grey-15: #262626;
+$brand-color-grey-20: #333;
+$brand-color-grey-25: #444;
+$brand-color-grey-33: #535353;
+$brand-color-grey-35: #595959;
+$brand-color-grey-40: #686868;
+$brand-color-grey-45: #737373;
+$brand-color-grey-55: #8c8c8c;
+$brand-color-grey-65: #a6a6a6;
+$brand-color-grey-70: #aaa;
+$brand-color-grey-80: #ccc;
+$brand-color-grey-90: #e5e5e5;
+$brand-color-grey-95: #fafafa;
+
+$brand-color-grey-dark: $brand-color-grey-15;
+
+$brand-color-neutral-1: $brand-color-black;
+$brand-color-neutral-2: $brand-color-grey-10;
+$brand-color-neutral-3: $brand-color-grey-20;
+$brand-color-neutral-4: $brand-color-grey-35;
+$brand-color-neutral-5: $brand-color-grey-45;
+$brand-color-neutral-6: $brand-color-grey-55;
+$brand-color-neutral-7: $brand-color-grey-65;
+$brand-color-neutral-8: $brand-color-grey-80;
+$brand-color-neutral-9: $brand-color-grey-90;
+$brand-color-neutral-10: $brand-color-white;
+
+$brand-color-neutral-1-alpha1: rgba($brand-color-neutral-1, 0.1);
+$brand-color-neutral-1-alpha2: rgba($brand-color-neutral-1, 0.2);
+$brand-color-neutral-1-alpha3: rgba($brand-color-neutral-1, 0.3);
+$brand-color-neutral-1-alpha5: rgba($brand-color-neutral-1, 0.5);
+$brand-color-neutral-1-alpha8: rgba($brand-color-neutral-1, 0.8);
+
+$brand-color-neutral-2-alpha8: rgba($brand-color-neutral-2, 0.8);
+
+$brand-color-neutral-3-alpha8: rgba($brand-color-neutral-3, 0.8);
+
+$brand-color-neutral-4-alpha6: rgba($brand-color-neutral-4, 0.6);
+
+$brand-color-neutral-6-alpha4: rgba($brand-color-neutral-6, 0.4);
+$brand-color-neutral-6-alpha5: rgba($brand-color-neutral-6, 0.5);
+
+$brand-color-neutral-7-alpha2: rgba($brand-color-neutral-7, 0.2);
+
+$brand-color-neutral-10-alpha2: rgba($brand-color-neutral-10, 0.2);
+$brand-color-neutral-10-alpha3: rgba($brand-color-neutral-10, 0.3);
+$brand-color-neutral-10-alpha5: rgba($brand-color-neutral-10, 0.5);
+$brand-color-neutral-10-alpha7: rgba($brand-color-neutral-10, 0.7);
+$brand-color-neutral-10-alpha8: rgba($brand-color-neutral-10, 0.8);

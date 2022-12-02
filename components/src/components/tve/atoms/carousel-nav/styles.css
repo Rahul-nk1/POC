@@ -1,0 +1,49 @@
+@import "~brand/css/index.css";
+
+$button-size-mobile: 40px;
+$button-size-default: 48px;
+
+.goToPrev,
+.goToNext {
+  background-color: rgba($brand-color-black, 0.6);
+  border-radius: 50%;
+  border-width: 0;
+  outline-width: 0;
+  padding: 0;
+  cursor: pointer;
+  height: $button-size-default;
+  width: $button-size-default;
+  z-index: $z-component-overlay;
+
+  &:before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+
+    height: $button-size-default;
+    width: $button-size-default;
+  }
+
+  @media (--small-down) {
+    height: $button-size-mobile;
+    width: $button-size-mobile;
+
+    &:before {
+      height: $button-size-mobile;
+      width: $button-size-mobile;
+    }
+  }
+}
+
+.accessibleOutline {
+  outline-width: unset;
+}
+
+.goToNext::before {
+  content: $brand-icon-chevron-right-shadowed;
+}
+
+.goToPrev::before {
+  content: $brand-icon-chevron-left-shadowed;
+}

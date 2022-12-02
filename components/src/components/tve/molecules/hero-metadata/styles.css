@@ -1,0 +1,527 @@
+/* TODO -- anomolously, not including the brand styles here prevents the css vars / mixins from being defined below
+    -- even though they work fine in other components */
+@import "~brand/css/index.css";
+@import "./mixins";
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/******************************************************************************/
+/* Common styles for metadata */
+/******************************************************************************/
+.metadataContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 $grid-margin-xsmall 40px;
+
+  @media (--small-down) {
+    height: 460px;
+    margin: 0 auto;
+    padding: 0 24px 56px;
+  }
+  @media (--small-up) {
+    padding: 0 $grid-margin-small 56px;
+  }
+  @media (--medium-up) {
+    padding: 0 $grid-margin-medium 56px;
+  }
+  @media (--large-up) {
+    padding: 0 $grid-margin-large 56px;
+  }
+  @media (--xlarge-up) {
+    padding: 0 $grid-margin-xlarge 64px;
+  }
+
+  &.compact {
+    padding-bottom: 14%;
+    padding-top: 20%;
+  }
+
+  &.carousel {
+    @media (--mobile-only) {
+      padding-bottom: 56px;
+    }
+  }
+}
+
+.carouselMetadataContainer {
+  @media (--xlarge-up) {
+    padding: 0 $grid-margin-xlarge 96px;
+  }
+}
+
+.metadataLeft,
+.metadataRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  height: 100%;
+  box-sizing: border-box;
+
+  @media (--small-up) {
+    width: 50%;
+  }
+
+  &.compact {
+    position: relative;
+    justify-content: flex-start;
+  }
+}
+
+.metadataLeft {
+  flex-grow: 1;
+}
+
+.metadataRight {
+  align-items: flex-end;
+  flex-grow: 0;
+}
+
+.hideBelowSmall {
+  @media (--small-down) {
+    display: none;
+  }
+}
+
+.hideAboveSmall {
+  @media (--small-up) {
+    display: none;
+  }
+}
+
+.titleContainer {
+  @mixin textShadow;
+  word-wrap: break-word;
+}
+
+.carouselTitleContainer {
+  @media (--small-down) {
+    font-size: 28px;
+  }
+}
+
+.descriptionContainer {
+  @mixin textShadow;
+  margin-top: 8px;
+  word-wrap: break-word;
+  font-size: 14px;
+
+  @media (--small-down) {
+    width: 90%;
+  }
+
+  @media (--small-up) {
+    @mixin max-line 2, 1.5em;
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
+  @media (--medium-up) {
+    font-size: 18px;
+  }
+}
+
+.tuneTextContainer {
+  @mixin textShadow;
+  @mixin max-line 1, 24px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  @media (--large-down) {
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+  @media (--small-down) {
+    font-size: 12px;
+    letter-spacing: 0.38px;
+    margin-top: 0px;
+  }
+}
+
+.carouselTuneTextContainer {
+  margin-bottom: unset;
+}
+
+.link {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: red;
+}
+
+.showLogo {
+  width: 100%;
+  max-height: 94px;
+  object-position: left center;
+
+  &.carouselObjectPosition {
+    @media (--tablet-only) {
+      object-position: left;
+    }
+  }
+
+  @media (--small-down) {
+    width: 85%;
+    max-width: 460px;
+    max-height: 88px;
+  }
+
+  @media (--medium-up) {
+    width: 30vw;
+    max-width: 600px;
+    max-height: 240px;
+  }
+}
+
+.carouselShowLogo {
+  @media (--small-down) {
+    width: 72%;
+    max-height: 80px;
+    margin-bottom: 8px;
+    object-position: center;
+  }
+  @media (--large-up) {
+    width: 33vw;
+    margin-bottom: 12px;
+  }
+}
+
+.standardShowLogo {
+  width: 30vw;
+  margin-bottom: 12px;
+  @media (--small-down) {
+    width: 85%;
+    max-height: 88px;
+  }
+}
+
+.channelLogo {
+  opacity: 0.5 !important;
+}
+
+.channelLogoGeneric {
+  height: 24px;
+
+  @media (--xsmall-down) {
+    height: 20px;
+  }
+
+  @media (--medium-up) {
+    height: 40px;
+  }
+}
+
+/******************************************************************************/
+/* ChannelMetadata */
+/******************************************************************************/
+.channelMetadata {
+  align-items: center;
+
+  @media (--small-up) {
+    align-items: flex-start;
+  }
+}
+
+/******************************************************************************/
+/* ShowMetadata */
+/******************************************************************************/
+.playButtonWrapperShow {
+  align-self: flex-start;
+}
+
+/******************************************************************************/
+/* Basic hero metadata */
+/******************************************************************************/
+
+.ctaLocked {
+}
+
+.ctaContainer {
+  flex-grow: 1;
+  margin: 24px 0 0;
+  @media (--small-down) {
+    margin: 16px 0 0;
+  }
+}
+
+.basic {
+  & .titleContainer {
+    @mixin max-line 3, 1.3em;
+    text-overflow: clip;
+
+    @media (--tablet-only) {
+      @mixin max-line 3, 1.19em;
+      text-overflow: clip;
+    }
+
+    @media (--mobile-only) {
+      @mixin max-line 3, 1.25em;
+      text-overflow: clip;
+    }
+  }
+
+  & .titleChannelContainer {
+    @mixin max-line 2, 1.22em;
+  }
+
+  & .cta {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 12px 16px;
+
+    @media (--medium-up) {
+      padding: 14px 20px;
+    }
+  }
+
+  & .ctaTextContainer {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: center;
+    width: 100%;
+  }
+
+  & .ctaText {
+    @mixin max-line 1, 1.45em;
+  }
+
+  & .ctaLockIcon {
+    width: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  &.carousel {
+    & .metadataLeft {
+      flex-grow: 1;
+      align-items: center;
+      text-align: center;
+
+      @media (--small-down) {
+        flex-grow: 1;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: center;
+      }
+
+      @media (--small-up) {
+        flex-grow: 0;
+        align-items: flex-start;
+        justify-content: flex-end;
+        text-align: left;
+      }
+    }
+
+    & .ctaContainer {
+      margin-right: 0;
+
+      @media (--small-up) {
+        margin-right: 24px;
+      }
+    }
+  }
+}
+
+.ctaIcon {
+  width: 14px;
+  height: auto;
+  margin: 0 8px 0 0;
+  opacity: 0;
+
+  &Visible {
+    opacity: 1;
+  }
+
+  &.ctaLocked {
+    width: 20px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+  }
+}
+.ctaActiveVideoForShow {
+  position: relative;
+  margin-top: 8px;
+
+  & .cta {
+    margin-top: 16px;
+  }
+}
+
+.ctaProgressBar,
+.ctaProgressBarContainer,
+.ctaProgressBarWrapper:before {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.ctaProgressBar {
+  background-color: $brand-color-neutral-10;
+
+  &Wrapper {
+    display: block;
+    position: relative;
+    margin-top: 12px;
+
+    &:before {
+      content: "";
+      width: 100%;
+      display: block;
+      height: 4px;
+      background-color: $brand-color-neutral-10;
+      opacity: 0.3;
+    }
+  }
+}
+
+.ctaButtonContainer {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.ctaStatusContainer,
+.ctaStatusContainer .cta {
+  justify-content: flex-start;
+  max-width: 160px;
+  box-sizing: border-box;
+
+  @media (--small-down) {
+    max-width: 168px;
+  }
+
+  @media (--small-up) {
+    justify-content: center;
+    min-width: 160px;
+    max-width: 100%;
+  }
+}
+
+.buttonStyles {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  & .cta {
+    & .ctaInner {
+      @media (--small-down) {
+        width: 100%;
+        & .ctaTextContainer {
+          & .ctaText {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: $brand-color-neutral-8;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.favoriteButton {
+  margin-left: 24px;
+
+  @media (--small-down) {
+    margin-left: 20px;
+  }
+
+  @media (--small-up) {
+    margin-left: 32px;
+  }
+}
+
+.episodeInfo {
+  color: $brand-color-neutral-8;
+  font-size: 14px;
+}
+
+.episodeHeader {
+  font-weight: 600;
+
+  & span {
+    font-weight: bold;
+  }
+}
+
+.paddingRightSmall {
+  padding-right: 12px;
+}
+
+/******************************************************************************/
+/* Compact hero metadata */
+/******************************************************************************/
+.compact {
+  .channelName {
+    display: none;
+  }
+  .descriptionContainer {
+    @mixin textShadow;
+    @mixin max-line 2, 1.25em;
+    margin-top: 36px;
+    width: 124%;
+    word-wrap: break-word;
+    font-family: $brand-font-primary;
+    font-size: 22px;
+    line-height: 1.36;
+    letter-spacing: normal;
+    color: $brand-color-white;
+  }
+  .showLogo {
+    width: 450px;
+    height: 150px;
+  }
+  .buttonStyles {
+    margin-top: auto;
+  }
+}
+
+.compact,
+.backgroundMetadata {
+  .titleChannelContainer,
+  .titleContainer {
+  }
+}
+
+.liveBadge {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1px;
+  font-weight: bold;
+  background-color: $brand-color-alert-bright;
+  color: $brand-color-neutral-10;
+  box-sizing: border-box;
+  line-height: 1;
+  width: 40px;
+  height: 16px;
+  @media (--small-down) {
+    margin-top: 8px;
+  }
+}
+
+.showLogoHeaderTag {
+  line-height: 1;
+}
+
+.willTween {
+  opacity: 1;
+  visibility: hidden;
+}

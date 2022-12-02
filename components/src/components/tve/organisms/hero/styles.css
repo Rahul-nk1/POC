@@ -1,0 +1,75 @@
+@import "./variables";
+@import "./mixins";
+/* TODO: anomolously, not including the brand styles here prevents the css vars from being defined below
+    -- even though they work fine in other components */
+@import "~global/css/breakpoints.css";
+
+/******************************************************************************/
+/* Basic hero */
+/******************************************************************************/
+.basic {
+  width: 100%;
+
+  .hero {
+    &.viewStandard {
+      @mixin heroHeight $b-hero-height--xsmall, $b-hero-height--small,
+        $b-hero-height--medium, $b-hero-height--large, $b-hero-height--min;
+    }
+
+    &.viewFullScreen {
+      height: $b-hero-height--full-screen;
+    }
+  }
+
+  .backgroundLogo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+
+    @media (--large-down) {
+      display: none;
+    }
+  }
+}
+
+/******************************************************************************/
+/* Compact hero */
+/******************************************************************************/
+.compact {
+  width: 100%;
+
+  & .hero {
+    &.viewStandard {
+      @mixin heroHeight $c-hero-height--xsmall, $c-hero-height--small,
+        $c-hero-height--medium, $c-hero-height--large, $c-hero-height--min;
+    }
+
+    &.viewFullScreen {
+      height: $c-hero-height--full-screen;
+    }
+  }
+}
+
+/******************************************************************************/
+/* Common styles for hero */
+/******************************************************************************/
+.hero {
+  display: block;
+  position: relative;
+
+  @media (--small-down) {
+    overflow: hidden;
+  }
+
+  @media (--xlarge-up) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

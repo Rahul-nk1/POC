@@ -1,0 +1,18 @@
+$brand-font-open-sans: "Open Sans", sans-serif;
+
+$brand-font-primary: $brand-font-open-sans;
+$brand-font-secondary: $brand-font-open-sans;
+
+$brand-body-font-family: $brand-font-primary;
+$brand-footer-font-family: $brand-font-secondary;
+$brand-header-font-family: $brand-font-secondary;
+
+$brand-font-size-h1: 25px;
+$brand-font-size-h2: 22.5px;
+$brand-font-size-h3: 20px;
+$brand-font-size-p: 14px;
+
+$brand-font-size-paragraph: 1em;
+$brand-font-size-details: 1em;
+$brand-font-size-date: 0.75em;
+$brand-font-size-legal: 0.625em;

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i, a, e) {
+        // if performance query param exist, do not do GTM
+        if (
+          w &&
+          w.location &&
+          w.location.search &&
+          w.location.search.includes("performance")
+        ) {
+          return;
+        }
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var env = /uat\/b/.test(w.location.hostname)
+          ? "&gtm_auth=" + a + "&gtm_preview=env-" + e
+          : "";
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl + env;
+        f.parentNode.insertBefore(j, f);
+      })(
+        window,
+        document,
+        "script",
+        "dataLayer",
+        "<%= GTM_ID %>",
+        "<%= GTM_AUTH %>",
+        "<%= GTM_ENV %>"
+      );
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title || 'TV Everywhere' %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .spinner {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        width: 100%;
+      }
+      .bounce {
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 100%;
+        display: inline-block;
+        animation: bounce 1.4s infinite ease-in-out both;
+      }
+      .n1 {
+        animation-delay: -0.32s;
+        margin-right: 10px;
+      }
+
+      .n2 {
+        animation-delay: -0.16s;
+        margin-right: 10px;
+      }
+
+      .n3 {
+        animation-delay: 0s;
+      }
+
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=<%= GTM_ID%>"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="shell" tabindex="-1">
+      <div id="header"></div>
+      <div id="app" tabindex="-1">
+        <div class="spinner" id="remove-loader">
+          <div class="bounce n1"></div>
+          <div class="bounce n2"></div>
+          <div class="bounce n3"></div>
+        </div>
+      </div>
+      <div id="footer"></div>
+
+      <div id="portal-group">
+        <div id="welcome-banner"></div>
+        <div id="toast"></div>
+        <div id="bottom-drawer"></div>
+      </div>
+    </div>
+  </body>
+</html>

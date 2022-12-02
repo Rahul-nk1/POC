@@ -1,0 +1,142 @@
+@import "~brand/css/index.css";
+
+.welcomeBanner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: $brand-color-white;
+  .inner {
+    padding: 24px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    border-radius: 2px;
+    border: solid 1px $brand-color-light;
+    background-image: linear-gradient(
+      171deg,
+      $brand-color-light 47%,
+      $brand-color-dark 118%
+    );
+    max-width: 1240px;
+    margin: 0 auto;
+    box-shadow: 0 0 100px -50px $brand-color-neutral-1-alpha1,
+      0 0 100px -50px $brand-color-neutral-1-alpha1,
+      0 0 300px 50px $brand-color-neutral-1-alpha3,
+      0 0 300px 50px $brand-color-neutral-1-alpha2;
+    @media (--medium-down) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    @media (--small-down) {
+      padding: 20px 30px;
+    }
+
+    @media (--large-up) {
+      padding: 24px 80px;
+    }
+  }
+}
+.logo {
+  max-width: 120px;
+  max-height: 70px;
+  margin: 8px 0 0 0;
+
+  @media (--small-down) {
+    height: 42px;
+  }
+  @media (--medium-up) {
+    margin: 4px 0 0 0;
+  }
+}
+.textGroup {
+  max-width: 500px;
+  margin-left: 20px;
+  @media (--medium-down) {
+    margin: 20px 0 0 0;
+  }
+}
+.header {
+  margin-bottom: 8px;
+  width: 100%;
+  height: 48px;
+  letter-spacing: normal;
+  line-height: 1.33;
+
+  @media (--medium-down) {
+    width: 502px;
+  }
+
+  @media (--small-down) {
+    width: auto;
+    line-height: 1.43;
+    letter-spacing: normal;
+    font-size: 14px;
+  }
+}
+
+.description {
+  @media (--small-down) {
+    line-height: 1.5;
+    letter-spacing: 0.25px;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  @media (--medium-down) {
+    margin: 20px 0 0 0;
+  }
+  @media (--small-down) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (--large-up) {
+    margin-left: 117px;
+  }
+}
+
+.dismissButton {
+  font-size: 600;
+  transition: all 0.15s linear;
+  border-bottom: 1px solid transparent;
+  letter-spacing: 0.25px;
+
+  &:hover {
+    transition: all 0.15s linear;
+    border-color: rgba(255, 255, 255, 0.8);
+
+    .dismissTextStyle {
+      color: $brand-color-neutral-10;
+    }
+  }
+
+  @media (--small-down) {
+    padding: 8px 0;
+    letter-spacing: 0.25px;
+  }
+}
+
+.loginButton {
+  color: $brand-color-white;
+  margin: 0 32px;
+  padding: 12px 24px;
+
+  @media (--small-down) {
+    margin-bottom: 12px;
+  }
+
+  &:hover {
+    color: $brand-color-black;
+    background: $brand-color-white;
+    transition: all 0.3s ease-in-out;
+  }
+
+  @media (--small-down) {
+    margin: 0 0 12px;
+    width: 240px;
+    padding: 8px 0;
+  }
+}

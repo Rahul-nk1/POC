@@ -1,0 +1,29 @@
+@import "~brand/css/index.css";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $brand-body-font-family;
+  color: $brand-body-fg;
+  background: $brand-body-gradient;
+  background-attachment: fixed;
+  padding-bottom: 96px;
+
+  @media (--medium-up) {
+    padding-bottom: 120px;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  &.darkBackground {
+    background: $brand-color-neutral-2;
+  }
+}
+
+.topPadding {
+  padding-top: $header-height;
+}

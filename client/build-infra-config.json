@@ -1,0 +1,23 @@
+{
+  "build": [
+    { "name": "default", "directory": "tlc" },
+    { "name": "ahc", "directory": "ahc" },
+    { "name": "apl", "directory": "apl" },
+    { "name": "cook", "directory": "cook" },
+    { "name": "dam", "directory": "dam" },
+    { "name": "des", "directory": "des" },
+    { "name": "dfc", "directory": "dfc" },
+    { "name": "diy", "directory": "diy" },
+    { "name": "dlf", "directory": "dlf" },
+    { "name": "dsc", "directory": "dsc" },
+    { "name": "dsf", "directory": "dsf" },
+    { "name": "food", "directory": "food" },
+    { "name": "hgtv", "directory": "hgtv" },
+    { "name": "ids", "directory": "ids" },
+    { "name": "own", "directory": "own" },
+    { "name": "sci", "directory": "sci" },
+    { "name": "tlc", "directory": "tlc" },
+    { "name": "trav", "directory": "trav" },
+    { "name": "vel", "directory": "vel" }
+  ]
+}

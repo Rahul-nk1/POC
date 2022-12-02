@@ -1,0 +1,8 @@
+{
+  "page.error.generic.header": "Page Load Error",
+  "page.error.generic.description": "Please refresh this page to view content.",
+  "page.error.generic.buttonLabel": "Try Again",
+  "page.error.notFound.header": "Page Not Found",
+  "page.error.notFound.description": "This page is not available at this time.",
+  "page.error.notFound.buttonLabel": "Back to Home"
+}

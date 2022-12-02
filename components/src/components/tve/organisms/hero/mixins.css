@@ -1,0 +1,16 @@
+@define-mixin heroHeight $mobile, $tablet, $desktop, $cinema, $minHeight: 0 {
+  min-height: $minHeight;
+  height: $mobile;
+
+  @media (--small-up) {
+    height: $tablet;
+  }
+
+  @media (--medium-up) {
+    height: $desktop;
+  }
+
+  @media (--large-up) {
+    height: $cinema;
+  }
+}

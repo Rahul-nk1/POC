@@ -1,0 +1,7 @@
+@import "@discovery/components-luna/lib/css/reset.css";
+
+button {
+  background: none;
+  border: none;
+  appearance: none;
+}

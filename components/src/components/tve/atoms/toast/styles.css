@@ -1,0 +1,27 @@
+@import "~brand/css/index.css";
+
+.toastContainer {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast {
+  align-items: center;
+  background-color: $brand-color-neutral-10;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+  display: flex;
+  width: 480px;
+  height: 60px;
+  justify-content: center;
+  margin: 0 auto;
+  white-space: nowrap;
+
+  @media (--small-down) {
+    width: 300px;
+    height: 44px;
+    font-size: 12px;
+  }
+}

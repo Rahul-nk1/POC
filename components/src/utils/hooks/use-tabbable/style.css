@@ -1,0 +1,15 @@
+.accessibleOutline {
+  /* This is set to CSS specificity weight: 30 points (3x className) */
+  &&& {
+    outline-width: unset;
+  }
+  &&&:focus {
+    outline-width: unset;
+    outline-style: auto;
+  }
+}
+
+.noOutline {
+  outline-width: 0;
+  outline-style: none;
+}

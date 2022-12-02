@@ -1,0 +1,16 @@
+{
+  "include": ["src/**/*", "src/**/*.json"],
+  "exclude": ["lib"],
+
+  "compilerOptions": {
+    "rootDir": "src",
+    "sourceMap": true,
+
+    "allowJs": true,
+    "esModuleInterop": true,
+    "types": [],
+    "jsx": "react"
+  },
+
+  "references": [{ "path": "../common" }]
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"product-attributes.d.ts","sourceRoot":"","sources":["../../../src/eventing/setup/product-attributes.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,SAAS,MAAM,kCAAkC,CAAC;AAG9D,QAAA,MAAM,oBAAoB;aAIf,UAAU,QAAQ;UACrB,UAAU,YAAY;MAC1B,QAAQ,UAAU,iBAAiB,CAKrC,CAAC;AAEH,OAAO,EAAE,oBAAoB,EAAE,CAAC"}

@@ -1,0 +1,76 @@
+$media-break-xsmall: 480px;
+$media-break-small: 768px; /* mobile stops at 767px, tablet starts at 768px */
+$media-break-medium: 1024px; /* tablet stops at 1023px, desktop starts at 1024px */
+$media-break-large: 1440px; /* desktop stops at 1439px, cinema starts at 1440px */
+$media-break-xlarge: 1600px;
+$media-break-xxlarge: 2400px; /* for bigger screen, starts at 2400px */
+
+$grid-gap: 16px;
+$grid-gap-xs: 8px;
+
+/*TODO: This is for xxsmall screens, revisit this after we get the affiliate logo and mobile network logo in the menubar */
+$nav-margin-xxsmall: 24px;
+$grid-margin-xsmall: 24px; /* mobile */
+$grid-margin-small: 40px; /* tablet */
+$grid-margin-medium: 56px; /* desktop 1 */
+$grid-margin-large: 80px; /* desktop 2 */
+$grid-margin-xlarge: 120px; /* cinema */
+$grid-margin-xxlarge: 120px;
+
+$grid-width-xsmall: calc(100vw - 2 * $grid-margin-xsmall);
+$grid-width-small: calc(100vw - 2 * $grid-margin-small);
+$grid-width-medium: calc(100vw - 2 * $grid-margin-medium);
+$grid-width-large: calc(100vw - 2 * $grid-margin-large);
+$grid-width-xlarge: calc(100vw - 2 * $grid-margin-xlarge);
+$grid-width-xxlarge: calc(100vw - 2 * $grid-margin-xxlarge);
+
+$list-gutter-xsmall: 24px;
+$list-gutter-small: 40px;
+$list-gutter-large: 0px;
+
+$list-max-width: 1200px;
+
+$grid-margin-scalable-mobile: 6.4vw;
+$grid-margin-scalable-tablet: 5.2083vw;
+$grid-margin-scalable-desktop: 4.5vw;
+$grid-margin-scalable-cinema: 3.5vw;
+
+$grid-width-scalable-mobile: calc(100vw - 2 * $grid-margin-scalable-mobile);
+$grid-width-scalable-tablet: calc(100vw - 2 * $grid-margin-scalable-tablet);
+$grid-width-scalable-desktop: calc(100vw - 2 * $grid-margin-scalable-desktop);
+$grid-width-scalable-cinema: calc(100vw - 2 * $grid-margin-scalable-cinema);
+
+$grid-gap-scalable-mobile: 3.2vw;
+$grid-gap-scalable-tablet: 1.5625vw;
+$grid-gap-scalable-desktop: 1.25vw;
+$grid-gap-scalable-cinema: 1vw;
+
+@custom-media --xsmall-up (width >= $media-break-xsmall);
+@custom-media --xsmall-down (width < $media-break-xsmall);
+
+@custom-media --small-up (width >= $media-break-small);
+@custom-media --small-down (width < $media-break-small);
+
+@custom-media --medium-up (width >= $media-break-medium);
+@custom-media --medium-down (width < $media-break-medium);
+
+@custom-media --large-up (width >= $media-break-large);
+@custom-media --large-down (width < $media-break-large);
+
+@custom-media --xlarge-up (width >= $media-break-xlarge);
+@custom-media --xlarge-down (width < $media-break-xlarge);
+
+@custom-media --xxlarge-up (width >= $media-break-xxlarge);
+@custom-media --xxlarge-down (width < $media-break-xxlarge);
+
+@custom-media --mobile-only (width < $media-break-small);
+@custom-media --tablet-only ($media-break-small <= width < $media-break-medium);
+@custom-media --desktop-only ($media-break-medium <= width < $media-break-large);
+@custom-media --cinema-only (width >= $media-break-large);
+
+/*
+  ATVE cards need to switch the number of cards per rail at this special
+  breakpoint. This is NOT intended to be used anywhere besides ATVE cards.
+ */
+$media-break-atve-desktop: 1280px;
+@custom-media --atve-desktop-start (width >= $media-break-atve-desktop);

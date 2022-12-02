@@ -1,0 +1,191 @@
+@import "~brand/css/index.css";
+
+$hoverPadding: 40px;
+$standardCardRatioValue: 0.5625;
+$grid-gap-poster-secondary: 32px;
+$grid-gap-standard-secondary: 40px;
+
+@define-mixin standardCardHeight $gridWidth, $gridGapCount, $cardCount {
+  height: calc(
+    (($gridWidth - $grid-gap * $gridGapCount) / $cardCount) *
+      ($standardCardRatioValue) + 75px
+  );
+}
+
+.cardsStandardSecondary {
+  display: grid;
+  grid-row-gap: $grid-gap-standard-secondary;
+  grid-column-gap: $grid-gap-xs;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (--small-up) {
+    grid-column-gap: $grid-gap;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (--medium-up) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (--large-up) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 40px;
+  }
+
+  @media (--xlarge-up) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (--xxlarge-up) {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  & > div {
+    @media (--small-down) {
+      position: relative;
+      width: calc(($grid-width-xsmall - calc($grid-gap-xs) * 1.7) / 2);
+      @mixin standardCardHeight $grid-width-xsmall, 1, 2;
+      max-width: none;
+      min-width: 120px;
+    }
+  }
+}
+
+.cardsPosterSecondary {
+  display: grid;
+  grid-row-gap: $grid-gap-poster-secondary;
+  grid-column-gap: $grid-gap-xs;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (--small-up) {
+    grid-row-gap: 32px;
+    grid-column-gap: $grid-gap;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (--medium-up) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (--large-up) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-row-gap: 40px;
+  }
+
+  @media (--xlarge-up) {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  @media (--xxlarge-up) {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+
+.navButtonsPosterRail {
+  top: calc((100% - 50px) / 2);
+
+  @media (--small-up) {
+    top: calc((100% - 56px) / 2);
+  }
+  @media (--medium-up) {
+    top: calc((100% - 60px) / 2);
+  }
+}
+
+/* $gridGapCount - cards with grid gap visible, $cardCount- total cards visible */
+@define-mixin navButtonsStandardRailTop $gridWidth, $gridGapCount, $cardCount {
+  top: calc(
+    (
+        (
+            (($gridWidth - $grid-gap * $gridGapCount) / $cardCount) *
+              ($standardCardRatioValue)
+          ) / 2
+      ) + ($hoverPadding)
+  );
+}
+
+.navButtonsStandardRail {
+  @mixin navButtonsStandardRailTop $grid-width-small, 1, 1.3;
+
+  @media (--small-up) {
+    @mixin navButtonsStandardRailTop $grid-width-small, 2, 3;
+  }
+  @media (--medium-up) {
+    @mixin navButtonsStandardRailTop $grid-width-medium, 3, 4;
+  }
+  @media (--large-up) {
+    @mixin navButtonsStandardRailTop $grid-width-large, 3, 4;
+  }
+  @media (--xlarge-up) {
+    @mixin navButtonsStandardRailTop $grid-width-large, 4, 5;
+  }
+  @media (--xxlarge-up) {
+    @mixin navButtonsStandardRailTop $grid-width-large, 6, 7;
+  }
+}
+
+.slider {
+  .navButtonRight,
+  .navButtonLeft {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:hover {
+      transform: scale(1.1) translateY(-50%);
+      background-color: $brand-color-neutral-1-alpha8;
+      box-shadow: 0 8px 16px $brand-color-neutral-1-alpha2,
+        0 8px 16px $brand-color-neutral-1-alpha2;
+    }
+  }
+}
+.navButtonLeft {
+  left: -14px;
+
+  @media (--small-up) {
+    left: -20px;
+  }
+  @media (--medium-up) {
+    left: -24px;
+  }
+}
+
+.navButtonRight {
+  right: -14px;
+
+  @media (--small-up) {
+    right: -20px;
+  }
+  @media (--medium-up) {
+    right: -24px;
+  }
+}
+
+$card-hover-size: calc($grid-gap - 1px);
+.hoverPadding {
+  /* This creates the right-padding for the scroll container */
+  & > *:last-child::after {
+    content: "";
+    display: block;
+    position: absolute;
+    /*
+      3 is the magic number, that's the only explanation I have.
+      If left is not 3px, then when you scroll all the way to the right, the end
+      card will not be aligned. The height value is arbitrary.
+     */
+    left: 3px;
+    height: 3px;
+    width: $grid-margin-xsmall;
+  }
+
+  margin: -40px calc(-1 * $grid-margin-xsmall);
+  padding: 40px $grid-margin-xsmall;
+  scroll-padding: 40px $grid-margin-xsmall;
+  overflow-y: hidden;
+
+  @media (--small-up) {
+    margin: -40px calc(-1 * $card-hover-size);
+    padding: 40px calc($card-hover-size);
+    scroll-padding: 40px $card-hover-size;
+    & > *:last-child::after {
+      width: $grid-gap;
+    }
+  }
+}

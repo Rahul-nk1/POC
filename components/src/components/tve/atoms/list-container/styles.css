@@ -1,0 +1,14 @@
+/* This is needed for using CSS variables in media queries */
+@import "~global/css/breakpoints.css";
+
+.listContainer {
+  max-width: $list-max-width;
+  margin: 0 auto;
+  padding: 0 $list-gutter-xsmall;
+  @media (--small-up) {
+    padding: 0 $list-gutter-small;
+  }
+  @media (--large-up) {
+    padding: $list-gutter-large;
+  }
+}

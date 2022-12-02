@@ -1,0 +1,312 @@
+@import "~brand/css/index.css";
+
+$dropdownHeight: 46px;
+$maxDropdownHeight: calc($dropdownHeight * 7);
+$accessibleMargin: 2px;
+$liHeight: calc($dropdownHeight - $accessibleMargin);
+
+@define-mixin animationDelayForListElement {
+  /* A maximum of 7 list items are displayed */
+  @for $i from 1 to 7 {
+    &:nth-child($i) {
+      animation-delay: calc(0.04s * $i);
+    }
+  }
+}
+
+.mainContainer {
+  @media (--mobile-only) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.heading {
+  margin-bottom: 0;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  padding: 0 20px 0 $grid-margin-xsmall;
+
+  @media (--mobile-only) {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+  }
+
+  @media (--tablet-only) {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  @media (--small-up) {
+    padding: 0 20px 0 $grid-margin-small;
+  }
+
+  @media (--medium-up) {
+    padding: 0 20px 0 $grid-margin-medium;
+  }
+
+  @media (--large-up) {
+    padding: 0 20px 0 $grid-margin-large;
+  }
+  @media (--xlarge-up) {
+    padding: 0 20px 0 $grid-margin-xlarge;
+  }
+}
+
+.scrollFixedRight {
+  flex-direction: row;
+  display: flex;
+  margin-right: $grid-margin-xsmall;
+
+  @media (--small-up) {
+    margin-right: $grid-margin-small;
+  }
+
+  @media (--medium-up) {
+    margin-right: $grid-margin-medium;
+  }
+
+  @media (--large-up) {
+    margin-right: $grid-margin-large;
+  }
+  @media (--xlarge-up) {
+    margin-right: $grid-margin-xlarge;
+  }
+}
+
+.seasonHeadingContainer {
+  min-height: 67px;
+}
+
+.headingContainer {
+  min-height: 50px;
+}
+
+.seasonWrapper {
+  display: flex;
+  margin-bottom: 1.85vw;
+  align-items: center;
+
+  @media (--mobile-only) {
+    margin-bottom: 22px;
+    justify-content: space-between;
+  }
+}
+
+.scrollFixedContainer {
+  position: fixed;
+  top: 60px;
+  height: 60px;
+  width: 100%;
+  z-index: 4;
+  background-image: linear-gradient(
+    90deg,
+    $brand-color-light 70%,
+    $brand-color-dark
+  );
+  border-bottom: solid 1px rgba($brand-color-highlight, 0.16);
+  box-shadow: 0 2px 8px 0 rgba($brand-color-dark, 0.6);
+  margin: 0 -$grid-margin-xsmall;
+  display: flex;
+  justify-content: space-between;
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+
+  @media (--small-up) {
+    margin: 0 -$grid-margin-small;
+  }
+
+  @media (--medium-up) {
+    margin: 0 -$grid-margin-medium;
+  }
+
+  @media (--large-up) {
+    margin: 0 -$grid-margin-large;
+  }
+  @media (--xlarge-up) {
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}
+
+.myListButtonLabel {
+  @media (--mobile-only) {
+    display: none;
+  }
+
+  @media (--tablet-only) {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+  }
+}
+
+.selectWrapper {
+  position: relative;
+  width: 230px;
+  height: $dropdownHeight;
+  line-height: $dropdownHeight;
+  margin-left: 48px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 4;
+  background-color: rgba(249, 41, 94, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(22, 3, 7, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  @media (--mobile-only) {
+    width: 143px;
+    margin-left: 20px;
+    height: 48px;
+  }
+
+  & > span {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 20px;
+    vertical-align: baseline;
+
+    @media (--mobile-only) {
+      font-size: 14px;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(249, 41, 94, 0.16);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    top: 6px;
+    bottom: 0;
+    right: 12px;
+    width: 28px;
+    height: 32px;
+    background: $brand-icon-chevron-down center no-repeat;
+    background-size: cover;
+    content: "";
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.open {
+    z-index: 100;
+    background: $brand-color-dark;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+    &::after {
+      transition: 0.2s ease-in-out;
+      transform: rotate(-180deg);
+    }
+  }
+
+  &.chevronRemover {
+    pointer-events: none;
+    &::after {
+      background: none;
+    }
+  }
+}
+
+.select {
+  font-weight: 600;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  max-height: 0;
+  background: $brand-color-dark;
+  box-shadow: 0 2px 4px 0 rgba(22, 3, 7, 0.4);
+  transition: opacity 0.2s ease-in-out 0.2s, max-height 0.25s ease-in-out;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 6px;
+    border-radius: 3px;
+    background-color: $brand-color-neutral-6-alpha5;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $brand-color-neutral-1-alpha1;
+  }
+
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: $brand-color-neutral-6-alpha5 $brand-color-neutral-1-alpha1;
+
+  li {
+    height: $liHeight;
+    line-height: $liHeight;
+    font-size: 14px;
+    margin: $accessibleMargin;
+    padding-left: 18px;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    & > span {
+      vertical-align: baseline;
+    }
+  }
+
+  li:hover {
+    background: $brand-color-medium;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+
+/* Declare so that a scrollbar does not appear and disappear if not required */
+.scroll {
+  overflow-y: scroll;
+}
+
+.open {
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out, max-height 0.25s ease-in-out;
+  border-radius: 0 0 2px 2px;
+  max-height: calc(40px * 10);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+
+  &.select {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out, max-height 0.25s ease-in-out;
+    max-height: $maxDropdownHeight;
+  }
+
+  & li {
+    &:global {
+      animation: fadeIn 0.18s ease-in-out both;
+    }
+
+    @mixin animationDelayForListElement;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

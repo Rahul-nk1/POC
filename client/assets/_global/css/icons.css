@@ -1,0 +1,27 @@
+/* TODO -- might be more useful to combine these SVGs into an icon font */
+
+$brand-icon-chevron-down: url("~global/icons/chevron-down-24x24.svg");
+$brand-icon-chevron-left: url("~global/icons/chevron-left.svg");
+$brand-icon-chevron-right: url("~global/icons/chevron-right.svg");
+$brand-icon-chevron-left-shadowed: url("~global/icons/chevron-left-shadowed.svg");
+$brand-icon-chevron-right-shadowed: url("~global/icons/chevron-right-shadowed.svg");
+$brand-icon-chevron-left-shadowed-carousel: url("~global/icons/chevron-left-shadowed-carousel.svg");
+$brand-icon-chevron-right-shadowed-carousel: url("~global/icons/chevron-right-shadowed-carousel.svg");
+$brand-icon-cross: url("~global/icons/cross.svg");
+$brand-icon-cross-white: url("~global/icons/cross-white.svg");
+
+$brand-icon-search-white: url("~global/icons/search-white.svg");
+$brand-icon-search-med: url("~global/icons/search-med.svg");
+
+$brand-icon-check-black: url("~global/icons/check-black.svg");
+$brand-icon-check-grey: url("~global/icons/check-grey.svg");
+$brand-icon-check-white: url("~global/icons/check-white.svg");
+$brand-icon-circle-check-grey: url("~global/icons/circle-check-grey.svg");
+$brand-icon-plus-black: url("~global/icons/plus-black.svg");
+$brand-icon-plus-grey: url("~global/icons/plus-grey.svg");
+$brand-icon-plus-white: url("~global/icons/plus-white.svg");
+
+$brand-icon-lock: url("~global/icons/lock.svg");
+$brand-icon-lock-black: url("~global/icons/lock-black.svg");
+
+$brand-icon-user-sm: url("~global/icons/user-sm.svg");

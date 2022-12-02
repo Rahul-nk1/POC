@@ -1,0 +1,241 @@
+@import "~brand/css/index.css";
+
+$icon-width: 28px;
+$icon-height-trans: 32px;
+$icon-width-trans: 32px;
+$icon-width-expand-remove: 168px;
+$icon-width-expand-add: 128px;
+$icon-height: 28px;
+$icon-height-xs: 24px;
+$icon-width-xs: 24px;
+$icon-width-sm: 14px;
+$icon-height-sm: 14px;
+
+$animation-time: 0.3s;
+
+.favoriteButtonContainer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: $icon-height;
+  vertical-align: middle;
+  transform: translate3d(0, 0, 1px);
+
+  &.left {
+    justify-content: flex-end;
+  }
+
+  &.right {
+    justify-content: flex-start;
+  }
+  @media (--small-down) {
+    height: $icon-height-xs;
+  }
+}
+
+.fixtureContainer {
+  background-color: purple;
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  width: $icon-width;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  outline-width: 0;
+  transition: all $animation-time ease-in-out;
+  cursor: pointer;
+
+  &.accessibleOutline {
+    outline-width: unset;
+  }
+
+  &.accessibleOutline.add:focus,
+  &.add:hover,
+  &.addForce {
+    width: $icon-width-expand-add;
+  }
+  &.remove {
+    .checkmark {
+      .line2 {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(45deg) translate(13px, 8px) scale(1, 0.9);
+      }
+      .line1 {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(40deg) translate(1px, 19px) scale(0.5, 1);
+      }
+    }
+  }
+  &.accessibleOutline.remove:focus,
+  &.remove:hover,
+  &.removeForce {
+    width: $icon-width-expand-remove;
+  }
+  &:hover {
+    .checkmark {
+      .line2 {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(45deg) translate(13px, 8px) scale(1, 0.9);
+      }
+      .line1 {
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(40deg) translate(1px, 19px) scale(0.5, 1);
+      }
+    }
+  }
+  @media (--small-down) {
+    width: $icon-width-xs;
+  }
+}
+
+.label {
+  position: absolute;
+  right: 22px;
+  font-family: $brand-font-primary;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 2;
+  margin-right: 7px;
+  opacity: 0;
+  transition: opacity $animation-time ease-in-out;
+  transition-delay: 0.1s;
+  white-space: nowrap;
+  color: $brand-color-grey-20;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: calc(2 * $icon-height);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: radial-gradient(
+    circle at 100% 14px,
+    transparent 0,
+    transparent 22px,
+    $brand-color-white 22px
+  );
+  transition: all $animation-time ease-in-out;
+
+  &:hover {
+    background: radial-gradient(
+      circle at 96% 14px,
+      transparent 0,
+      transparent 16px,
+      $brand-color-white 18px
+    );
+  }
+
+  @media (--small-down) {
+    background: radial-gradient(
+      circle at 100% 16px,
+      transparent 0,
+      transparent 20px,
+      $brand-color-white 20px
+    );
+
+    &:hover {
+      background: radial-gradient(
+        circle at 100% 14px,
+        transparent 0,
+        transparent 20px,
+        $brand-color-white 20px
+      );
+    }
+  }
+
+  &.left .icon {
+    right: 5px;
+  }
+
+  &.right .icon {
+    left: 5px;
+  }
+
+  &:hover .label {
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+.accessibleOutline .iconWrapper .label {
+  opacity: 1;
+}
+
+.icon {
+  display: block;
+  position: absolute;
+  width: $icon-width-sm;
+  height: $icon-height-sm;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.left {
+    right: 0;
+  }
+
+  &.right {
+    left: 0;
+  }
+}
+
+.plus {
+  background-image: $brand-icon-plus-grey;
+}
+
+.check {
+  background-image: $brand-icon-check-grey;
+}
+
+.opaque {
+  opacity: 1;
+}
+
+.toastIcon {
+  width: 44px;
+  height: 44px;
+
+  @media (--small-down) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.checkmark {
+  height: $icon-height-trans;
+  width: $icon-width-trans;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -3px;
+  @media (--small-down) {
+    width: $icon-width;
+    height: $icon-height;
+  }
+  .line2 {
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+    transform: translate(11px, 10px);
+  }
+  .line1 {
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+    transform: translate(11px, 10px);
+  }
+}

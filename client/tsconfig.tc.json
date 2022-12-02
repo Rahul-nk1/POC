@@ -1,0 +1,14 @@
+{
+  "extends": "@discovery/tsconfig-ng/tsconfig.client.json",
+  "include": ["src/**/*", "src/**/*.json"],
+
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": [],
+    "jsx": "react",
+    "noEmit": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "references": [{ "path": "../components" }, { "path": "../common" }]
+}

@@ -1,0 +1,174 @@
+@import "~brand/css/index.css";
+@import "~global/css/breakpoints.css";
+
+.container {
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.myListTabs {
+  position: relative;
+  padding-top: 80px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: solid 1px $brand-network-selector-bottom-border-color;
+  box-shadow: 0 2px 8px 0 rgba($brand-color-dark, 0.6);
+  background: $brand-network-selector-gradient-mobile;
+
+  @media (--small-up) {
+    background: $brand-network-selector-gradient-tablet;
+  }
+
+  @media (--medium-up) {
+    padding-top: 110px;
+    background: $brand-network-selector-gradient;
+  }
+}
+
+.tab {
+  cursor: pointer;
+  font-family: $brand-font-primary;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  margin-right: 40px;
+  color: $brand-color-neutral-8;
+  transition: 0.2s ease-in;
+  &:hover {
+    color: $brand-color-neutral-10;
+  }
+}
+
+.selected {
+  .tab {
+    color: $brand-color-neutral-10;
+  }
+
+  .indicator:after {
+    opacity: 1;
+  }
+}
+
+.tabs {
+  display: flex;
+}
+
+.tabsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 28px;
+
+  margin-left: 24px;
+
+  @media (--xsmall-up) {
+    justify-content: flex-start;
+    margin-left: $grid-margin-xsmall;
+  }
+  @media (--small-up) {
+    margin-left: $grid-margin-small;
+  }
+  @media (--medium-up) {
+    margin-left: $grid-margin-medium;
+  }
+  @media (--large-up) {
+    margin-left: $grid-margin-large;
+  }
+  @media (--xlarge-up) {
+    margin-left: $grid-margin-xlarge;
+  }
+}
+
+.myListTitle {
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  margin-bottom: 28px;
+  color: $brand-color-neutral-10;
+
+  @media (--small-up) {
+    margin-bottom: 36px;
+    line-height: 1.43;
+    font-size: 28px;
+  }
+  @media (--medium-up) {
+    margin-bottom: 40px;
+    font-size: 32px;
+    line-height: 1.25;
+  }
+}
+
+.tabContent {
+  pointer-events: none;
+  opacity: 0;
+  display: none;
+  min-height: 33vh;
+
+  @media (--medium-only) {
+    min-height: 22vh;
+  }
+
+  @media (--small-down) {
+    min-height: 15vh;
+  }
+  &.visible {
+    display: block;
+    pointer-events: initial;
+    opacity: 1;
+
+    &:global {
+      animation: fadeIn 250ms;
+    }
+  }
+}
+
+.indicator {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &:after {
+    content: "";
+    background-color: #fff;
+    bottom: 0;
+    height: 3px;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    width: 100%;
+    margin-top: 14px;
+    border-radius: 1px;
+  }
+}
+
+.linkProviderContainer {
+  margin-top: 64px;
+  margin-left: 72px;
+}
+
+.linkProviderToView {
+  font-family: $brand-font-primary;
+  line-height: 1.25;
+  letter-spacing: 0.67px;
+  padding-bottom: 12px;
+}
+
+.underline {
+  position: absolute;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.15s ease;
+  border-bottom: 2px solid $brand-color-neutral-10;
+  padding: 8px 0 6px;
+  &:hover {
+    color: $brand-color-neutral-10-alpha5;
+    transition: all 0.6s ease-out;
+  }
+}

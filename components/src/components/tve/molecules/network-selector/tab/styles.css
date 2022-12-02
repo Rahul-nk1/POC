@@ -1,0 +1,98 @@
+@import "~brand/css/index.css";
+
+$logo-height: 140px;
+$logo-height-mobile: 96px;
+
+$transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+.tab {
+  padding: 0 12px;
+
+  @media (--small-down) {
+    max-width: 88px;
+    max-height: 36px;
+    padding: 0 16px;
+  }
+
+  @media (--small-up) {
+    max-width: 110px;
+    max-height: 40px;
+    padding: 0 20px;
+  }
+  @media (--medium-up) {
+    max-width: 120px;
+    max-height: 48px;
+    padding: 0 24px;
+  }
+  @media (--large-up) {
+    max-width: 140px;
+    max-height: 56px;
+    padding: 0 28px;
+  }
+}
+
+.title {
+  color: $brand-color-neutral-7;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: $transition;
+  padding-right: 24px;
+  max-width: 140px;
+  display: flex;
+  align-items: center;
+
+  @media (--small-up) {
+    font-size: 28px;
+  }
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: $logo-height;
+  padding: 0px;
+  font-family: inherit;
+  border: none;
+  background: none;
+  outline-width: 0;
+  cursor: pointer;
+  max-width: 188px;
+  min-width: 120px;
+
+  @media (--small-down) {
+    min-width: 90px;
+    max-width: 120px;
+    max-height: 56px;
+  }
+
+  @media (--large-up) {
+    height: $logo-height;
+  }
+
+  &.selected,
+  &:hover {
+    & .image {
+      opacity: 1;
+    }
+
+    .title {
+      color: $brand-color-neutral-10;
+    }
+  }
+
+  &.loading {
+    /* not needed for now outside of reference */
+  }
+}
+
+.image {
+  opacity: 0.2;
+  transition: $transition;
+  object-fit: contain;
+  object-position: center;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="650px" height="375px" viewBox="0 0 650 375" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>ID</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 650 0 650 374.497126 0 374.497126"></polygon>
+        <linearGradient x1="0%" y1="33.402592%" x2="100%" y2="66.597408%" id="linearGradient-3">
+            <stop stop-color="#F2762D" offset="0%"></stop>
+            <stop stop-color="#ED2724" offset="23.0389569%"></stop>
+            <stop stop-color="#ED2724" offset="71.8116554%"></stop>
+            <stop stop-color="#E11D68" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Network-Logo/Left/Color/ID" transform="translate(0.000000, -63.000000)">
+            <g id="ID" transform="translate(0.000000, 63.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M205.779167,0 L205.779167,194.754996 L205.779167,300.492033 L529.112037,374.497126 C611.583796,344.886663 650,274.835651 650,194.754996 C650,88.5756074 582.472222,0 434.230093,0 L205.779167,0 Z M356.64838,194.754996 L356.64838,106.594657 L419.505787,106.594657 C471.972222,106.594657 490.846296,150.459669 491.761111,194.754996 C490.846296,239.050323 471.972222,282.915335 419.505787,282.915335 L356.64838,282.915335 L356.64838,194.754996 Z M0,0 L0,194.754996 L0,253.395148 L150.869213,287.919623 L150.869213,194.754996 L150.869213,0 L0,0 Z" id="Fill-1" fill="url(#linearGradient-3)" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

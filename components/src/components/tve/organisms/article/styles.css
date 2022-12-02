@@ -1,0 +1,124 @@
+@import "~brand/css/index.css";
+
+$article-padding: 40px;
+
+div.container {
+  max-width: 720px;
+  margin: auto;
+
+  @media (--medium-down) {
+    max-width: 688px;
+    margin: 0 40px;
+  }
+
+  @media (--small-down) {
+    margin: 0 24px;
+  }
+}
+
+.article {
+  background-color: $brand-color-grey-95;
+  width: 100%;
+  padding: 82px 0 80px;
+  min-height: calc(100% - $article-padding);
+  z-index: $z-component;
+
+  @media (--medium-down) {
+    padding: 76px 0 60px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $brand-color-primary-base;
+    font-family: $brand-body-font-family;
+    margin: 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h1 {
+    padding-top: 50px;
+    @media (--medium-down) {
+      padding-top: $article-padding;
+    }
+  }
+
+  h2 {
+    padding-top: 50px;
+    @media (--medium-down) {
+      padding-top: $article-padding;
+    }
+  }
+
+  h3 {
+    padding-top: 40px;
+    @media (--medium-down) {
+      padding-top: 30px;
+    }
+  }
+
+  h4 {
+    padding-top: 30px;
+    @media (--medium-down) {
+      padding-top: 20px;
+    }
+  }
+
+  h5 {
+    padding-top: 17px;
+  }
+
+  h6 {
+    padding-top: 17px;
+  }
+
+  a {
+    color: $brand-color-primary;
+  }
+
+  p,
+  blockquote {
+    color: $brand-color-grey-20;
+    font-family: $brand-body-font-family;
+    padding-top: 20px;
+    margin: 0;
+    word-wrap: break-word;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    @media (--medium-down) {
+      line-height: 1.25;
+      font-size: 16px;
+      padding-top: 10px;
+    }
+  }
+
+  span {
+    font-family: $brand-body-font-family;
+  }
+
+  ol,
+  ul {
+    list-style-position: inside;
+    color: $brand-color-primary-base;
+    margin: 1em 0;
+  }
+
+  ol {
+    list-style-type: decimal;
+    color: $brand-color-primary-base;
+    li {
+      margin-bottom: 20px;
+    }
+  }
+
+  ul {
+    list-style-type: initial;
+  }
+}

@@ -1,0 +1,606 @@
+@import "~brand/css/index.css";
+
+.detailed {
+  position: relative;
+  margin-bottom: 16px;
+
+  & > * {
+    display: flex;
+    flex-direction: row;
+  }
+  @media (--small-up) {
+    border-radius: 2px;
+  }
+
+  @media (--xsmall-down) {
+    margin-bottom: 32px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgba($brand-color-neutral-1, 0.16);
+      transition: background-color 0.5s ease-in-out;
+    }
+  }
+
+  .innerContainer {
+    &.withoutTimeContainer {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    @media (--medium-down) {
+      padding-left: 40px;
+      padding-right: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    @media (--small-down) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    @media (--medium-up) {
+      display: flex;
+      flex-direction: row;
+    }
+    &:hover .imageContainer::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        225deg,
+        $brand-color-neutral-1-alpha2,
+        transparent 32%
+      );
+    }
+  }
+}
+
+.timeContainer {
+  width: 143px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+  height: 0;
+  overflow: hidden;
+  padding-top: 66.67%;
+  position: relative;
+  border-radius: 2px;
+  transition: transform 0.3s;
+  background-color: rgba(
+    229,
+    229,
+    229,
+    0.1
+  ); /* added to blend better with shimmer */
+
+  @media (--medium-down) {
+    width: 40vw;
+  }
+  @media (--small-up) {
+    padding-top: 56.25%;
+    width: 267px;
+  }
+
+  @media (--large-up) {
+    width: 320px;
+  }
+  .detailedLockPlayIcon {
+    @media (--small-down) {
+      right: 8px;
+    }
+  }
+}
+.detailedImageContainerInside {
+  transform: scale(1.04);
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+    opacity: 0.8;
+    transition: all 0.5s ease-in-out;
+  }
+  > img {
+    object-position: center;
+  }
+}
+
+.largeImages {
+  @media (--medium-up) {
+    width: 320px;
+  }
+
+  @media (--large-up) {
+    width: 360px;
+  }
+}
+
+.detailedFavoriteBtn {
+  right: 14px;
+  top: 12px;
+  @media (--small-down) {
+    right: 8px;
+  }
+}
+
+.relativeContainer {
+  position: relative;
+  display: flex;
+}
+
+.textContainer {
+  flex: 1;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (--medium-down) {
+    justify-content: flex-start;
+    padding: 12px 0 0 16px;
+  }
+
+  @media (--small-up) {
+    justify-content: flex-start;
+    padding-left: 24px;
+    padding-top: 16px;
+  }
+
+  @media (--large-up) {
+    padding-top: 24px;
+  }
+
+  @media (--xlarge-up) {
+    padding-left: 32px;
+  }
+}
+
+.hideMobile {
+  @media (--small-down) {
+    display: none;
+  }
+}
+
+.title {
+  color: $brand-color-neutral-10;
+  font-weight: 600;
+  line-height: 1.56;
+  @mixin max-line 2, 1.56em;
+  @media (--mobile-only) {
+    font-size: 14px;
+    line-height: 1.33;
+    margin-top: 2px;
+    @mixin max-line 2, 1.33em;
+  }
+}
+
+.showTitle {
+  color: $brand-color-neutral-8;
+  margin-top: 0;
+  @mixin max-line 1, 1.5em;
+  @media (--mobile-only) {
+    margin-top: 2px;
+    @mixin max-line 1, 1.67em;
+  }
+
+  @media (--medium-up) {
+    margin-bottom: 2px;
+  }
+}
+
+.description {
+  color: $brand-color-neutral-8;
+  width: 85%;
+
+  @media (--medium-up) {
+    margin-top: 6px;
+  }
+}
+
+.mobileDescription {
+  position: relative;
+  margin-top: 12px;
+  padding-right: 44px;
+  color: $brand-color-neutral-8;
+
+  @media (--small-up) {
+    display: none;
+  }
+
+  > button {
+    position: absolute;
+    background: none;
+    border: none;
+    bottom: 16px;
+    right: 0;
+    padding: 0;
+    color: $brand-color-neutral-9;
+    cursor: pointer;
+    outline: none;
+
+    > * {
+      line-height: normal;
+      font-size: 12px;
+    }
+  }
+}
+
+.seasonNumberEpisodeNumber {
+  color: $brand-color-neutral-10;
+  line-height: 1.33;
+  font-weight: 600;
+  display: inline;
+  margin-right: 12px;
+
+  > span + span {
+    margin-left: 20px;
+  }
+
+  @media (--small-up) {
+    line-height: 1.57;
+    padding-top: 0px;
+  }
+
+  @media (--medium-down) {
+    margin-bottom: 8px;
+  }
+  @media (--small-down) {
+    margin-right: 8px;
+  }
+}
+
+.episodeTitleOuter {
+  @mixin max-line 1, 1.57em;
+}
+
+.durationRatingAirdate {
+  color: $brand-color-neutral-6;
+  margin-top: 4px;
+  @media (--mobile-only) {
+    font-size: 11px;
+  }
+}
+
+.cardSeparatorLiveNow {
+  border-bottom: 1px solid $brand-network-selector-bottom-border-color;
+  &:first-child {
+    border-top: 1px solid $brand-network-selector-bottom-border-color;
+  }
+}
+
+.cardSeparatorLivePlayer {
+  border-bottom: 1px solid rgba($brand-color-neutral-4, 0.4);
+  &:first-child {
+    border-top: 1px solid rgba($brand-color-neutral-4, 0.4);
+  }
+}
+
+.fullWidth {
+  @media (--medium-up) {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  .innerContainer {
+    @media (--medium-up) {
+      max-width: $list-max-width;
+      margin: 0 auto;
+    }
+  }
+}
+
+.detailedHighlightMini {
+  margin-bottom: 0;
+
+  @media (--mobile-only) {
+    margin: 0 -$list-gutter-xsmall;
+  }
+
+  @media (--tablet-only) {
+    margin: 0 -$list-gutter-small;
+  }
+
+  .innerContainer {
+    display: flex;
+    width: 100%;
+
+    @media (--medium-down) {
+      padding-left: 40px;
+      padding-right: 40px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    @media (--small-down) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  .textContainer {
+    display: grid;
+    grid-auto-rows: min-content;
+    padding: 12px 0 12px 16px;
+
+    @media (--xsmall-up) {
+      padding: 8px 0 8px 16px;
+    }
+    @media (--small-up) {
+      padding: 16px 32px 16px 40px;
+    }
+    @media (--medium-up) {
+      padding: 20px 32px 20px 40px;
+    }
+    @media (--large-up) {
+      padding: 32px 40px 32px 40px;
+    }
+  }
+  .seasonNumberEpisodeNumber {
+    grid-row: 2;
+  }
+  .title {
+    grid-row: 1;
+  }
+
+  .durationRatingAirdate {
+    color: $brand-color-neutral-6;
+    grid-row: 4;
+    line-height: 1.5;
+    @media (--small-up) {
+      line-height: 1.4;
+    }
+    @media (--medium-up) {
+      line-height: 1.7;
+    }
+  }
+
+  .period {
+    font-weight: 600;
+    line-height: 1.57;
+    @media (--medium-down) {
+      padding-left: 8px;
+    }
+  }
+
+  .imageContainer {
+    width: 152px;
+
+    @media (--small-up) {
+      width: 312px;
+      height: auto;
+    }
+
+    @media (--large-up) {
+      width: 356px;
+    }
+  }
+  .timeContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    @media (--medium-up) {
+      width: 143px;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (--medium-down) {
+      padding: 22px 0 16px 0;
+    }
+
+    @media (--small-down) {
+      padding: 29px 0 13px 0;
+    }
+  }
+
+  .mobileDescription {
+    padding-right: 40px;
+
+    .mobileDescriptionText {
+      font-size: 12px;
+      line-height: 1.674;
+      letter-spacing: 0.012em;
+      padding-bottom: 32px;
+    }
+
+    @media (--small-up) {
+      display: none;
+    }
+  }
+  .description {
+    grid-row: 3;
+    width: 95%;
+  }
+}
+
+.detailedHighlight {
+  .progressBarContainerLive {
+    background-color: rgba($brand-color-neutral-10, 0.3);
+  }
+
+  .progressBar {
+    background-color: $brand-color-alert-bright;
+  }
+
+  margin: 0 -$list-gutter-xsmall;
+  box-shadow: 0 2px 4px 0 rgba($brand-color-neutral-1, 0.4);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  & > * {
+    flex-direction: column;
+  }
+  @media (--small-up) {
+    margin: 0px;
+
+    & > * {
+      flex-direction: row;
+    }
+  }
+  background-color: $brand-color-neutral-1-alpha2;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 16px $brand-color-neutral-1-alpha2,
+      0 8px 16px $brand-color-neutral-1-alpha2;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .description {
+    grid-row: 4;
+    color: $brand-color-neutral-8;
+    width: 95%;
+    margin-top: 4px;
+    @media (--medium-up) {
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .imageContainer {
+    width: 100%;
+
+    @media (--small-up) {
+      width: 340px;
+      height: auto;
+    }
+
+    @media (--medium-up) {
+      width: 455px;
+      max-width: 44vw;
+    }
+    @media (--large-up) {
+      max-width: 500px;
+      width: 44vw;
+    }
+  }
+  .textContainer {
+    display: grid;
+    grid-auto-rows: min-content;
+
+    @media (--small-down) {
+      padding: 22px 24px;
+    }
+
+    @media (--small-up) {
+      padding-right: 20px;
+      padding-left: 28px;
+      padding-bottom: 16px;
+    }
+
+    @media (--medium-up) {
+      padding: 40px 40px 0px 40px;
+    }
+  }
+  .hideMobile {
+    display: none;
+
+    @media (--small-up) {
+      display: block;
+    }
+  }
+
+  .mobileDescription {
+    .mobileDescriptionText {
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 0.012em;
+      padding-bottom: 8px;
+    }
+    padding-right: 40px;
+    @media (--small-up) {
+      display: none;
+    }
+  }
+  .seasonNumberEpisodeNumber {
+    grid-row: 3;
+    padding-top: 6px;
+    @media (--small-up) {
+      margin-bottom: 4px;
+    }
+  }
+  .title {
+    grid-row: 2;
+    margin-bottom: 4px;
+  }
+  .rating {
+    grid-row: 5;
+    color: $brand-color-neutral-6;
+    letter-spacing: 0.25px;
+
+    @media (--small-up) {
+      line-height: 1.43;
+      margin-top: 8px;
+    }
+  }
+
+  .time {
+    grid-row: 1;
+    position: relative;
+    padding-bottom: 8px;
+
+    @media (--tablet-only) {
+      padding-bottom: 0px;
+    }
+
+    > * {
+      display: inline-block;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -16px;
+      top: calc(50% - 7px);
+      background-color: $brand-color-alert-bright;
+      height: 8px;
+      width: 8px;
+      border-radius: 10px;
+      animation: breathe 1.2s cubic-bezier(0.8, 0, 0.7, 0.2) 1.2s infinite
+        alternate;
+    }
+  }
+
+  @keyframes breathe {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.1;
+    }
+  }
+
+  .hour {
+    margin-right: 8px;
+    line-height: 1.67;
+  }
+  .period {
+    line-height: 2.2;
+    position: absolute;
+    padding-bottom: 8px;
+  }
+  .onNowLockIcon {
+    bottom: 12px;
+    right: 12px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.badge > label {
+  z-index: 2;
+}

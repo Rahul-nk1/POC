@@ -1,0 +1,160 @@
+@import "~global/css/breakpoints.css";
+@import "~brand/css/index.css";
+
+.container {
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  padding-top: 61px;
+  background: $brand-color-black;
+}
+
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 10px;
+  width: 100%;
+  overflow: hidden;
+  max-width: calc(1.7777 * (85vh - 56px));
+  @media (--xsmall-up) {
+    justify-content: center;
+  }
+}
+
+.spacer {
+  @media (--xsmall-down) {
+    padding-top: 56.25%;
+    position: relative;
+  }
+}
+
+.videoElementWrapper {
+  width: 100%;
+  @media (--xsmall-down) {
+    position: fixed;
+    top: $header-height;
+    z-index: $z-component-overlay;
+  }
+}
+
+.videoElement {
+  position: relative;
+  overflow: hidden;
+}
+
+.videoElement iframe,
+.videoElement object,
+.videoElement embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.grid {
+  @media (--atve-desktop-start) {
+    display: grid;
+    grid-template-columns: auto 400px;
+    grid-column-gap: 40px;
+    justify-content: flex-start;
+  }
+
+  @media (--large-up) {
+    justify-content: center;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: $z-container;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (--medium-up) {
+    font-size: 16px;
+  }
+
+  /**
+   * Paddings here should match those in metadataContainer (hero component)
+   * (components/src/components/tve/molecules/hero-metadata/styles.css)
+   */
+
+  padding: 0 $grid-margin-xsmall $grid-margin-small;
+  @media (--small-up) {
+    padding: 0 $grid-margin-small $grid-margin-medium;
+  }
+  @media (--medium-up) {
+    padding: 0 $grid-margin-medium $grid-margin-medium;
+  }
+  @media (--atve-desktop-start) {
+    align-self: flex-start;
+    width: $media-break-atve-desktop;
+    padding: 0 $grid-margin-medium $grid-margin-medium;
+  }
+  @media (--large-up) {
+    width: $media-break-large;
+    padding: 0 $grid-margin-large $grid-margin-medium;
+  }
+  @media (--xlarge-up) {
+    align-self: initial;
+    width: $media-break-xlarge;
+    padding: 0 $grid-margin-xlarge 64px;
+  }
+}
+
+.listContainer {
+  margin: 0 auto;
+
+  @media (--large-down) {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.paginationButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 56px;
+}
+
+.aboutSection {
+  color: $brand-color-neutral-8;
+  font-size: 16px;
+}
+
+.aboutHeader {
+  color: $brand-color-neutral-10;
+  border-bottom: 1px $brand-color-light solid;
+  font-size: 20px;
+  padding-bottom: 17px;
+  margin-bottom: 24px;
+}
+
+.upNext {
+  background: $brand-color-neutral-2;
+  padding-bottom: 100px;
+}
+
+.upNextHeader {
+  font-size: 20px;
+  padding: 72px 0 24px;
+}
+
+.detailedCardTextConainer {
+  @media (--medium-down) {
+    padding-top: 12px;
+  }
+}
+
+.detailedCardShowTitle {
+  @media (--medium-down) {
+    margin-top: 0;
+  }
+}

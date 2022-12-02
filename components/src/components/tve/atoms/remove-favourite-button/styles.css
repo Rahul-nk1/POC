@@ -1,0 +1,104 @@
+@import "~brand/css/index.css";
+
+$icon-width: 28px;
+$icon-height-trans: 32px;
+$icon-width-trans: 32px;
+$icon-width-expand-remove: 90px;
+$icon-height: 28px;
+
+$animation-time: 0.3s;
+
+.favoriteButtonContainer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: $icon-height;
+  vertical-align: middle;
+  transform: translate3d(0, 0, 1px);
+
+  &.left {
+    justify-content: flex-end;
+  }
+
+  &.right {
+    justify-content: flex-start;
+  }
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  width: $icon-width;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  outline-width: 0;
+  transition: all $animation-time ease-in-out;
+  cursor: pointer;
+
+  &.accessibleOutline {
+    outline-width: unset;
+  }
+
+  &.accessibleOutline.remove:focus,
+  &.remove {
+    &:hover {
+      width: $icon-width-expand-remove;
+    }
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: calc(2 * $icon-height);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: radial-gradient(
+    circle at 100% 14px,
+    transparent 0,
+    transparent 22px,
+    $brand-color-white 22px
+  );
+  transition: all $animation-time ease-in-out;
+
+  &:hover .label {
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+.accessibleOutline .iconWrapper .label {
+  opacity: 1;
+}
+
+.opaque {
+  opacity: 1;
+}
+
+.checkmark {
+  height: $icon-height-trans;
+  width: $icon-width-trans;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -3px;
+
+  .line1 {
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+    transform: translate(22%, 21%);
+  }
+  .line2 {
+    display: none;
+  }
+}

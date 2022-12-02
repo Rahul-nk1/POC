@@ -1,0 +1,15 @@
+@import "./reset.css";
+
+a {
+  cursor: pointer;
+}
+
+body {
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+  -moz-osx-font-smoothing: grayscale; /* Firefox */
+}
+
+button {
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+}

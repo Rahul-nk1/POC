@@ -1,0 +1,90 @@
+@import "~brand/css/index.css";
+
+$button-size-mobile: 40px;
+$button-size-default: 48px;
+
+.horizontalSlider {
+  overflow: visible;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+
+.inner {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 8px 0;
+
+  & > * {
+    scroll-snap-align: start;
+  }
+
+  /* Chrome, Safari, Opera remove scrollbar */
+  &::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+  }
+  /* Firefox remove scrollbar */
+  scrollbar-width: none;
+  /* Edge remove scrollbar */
+  -ms-overflow-style: none;
+}
+
+.triggerLeft,
+.triggerRight {
+  position: relative;
+  scroll-snap-align: none;
+}
+
+.triggerLeft {
+  transform: translateX(4px);
+}
+
+.triggerRight {
+  transform: translateX(-4px);
+}
+
+.moreLeft,
+.moreRight {
+  height: $button-size-default;
+  width: $button-size-default;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  pointer-events: none;
+  transform: translateY(-50%);
+
+  @media (--small-down) {
+    height: $button-size-mobile;
+    width: $button-size-mobile;
+  }
+
+  &.show {
+    pointer-events: all;
+    opacity: 1;
+    transition: opacity 0.25s ease 0.1s;
+  }
+}
+
+.moreLeft {
+  left: 0;
+}
+
+.moreRight {
+  right: 0;
+}
+
+.moreLeft.offset {
+  @media (--medium-up) {
+    left: -1.5vw;
+  }
+}
+
+.moreRight.offset {
+  @media (--medium-up) {
+    right: -1.5vw;
+  }
+}

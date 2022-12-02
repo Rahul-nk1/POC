@@ -1,0 +1,156 @@
+@import "~brand/css/index.css";
+
+.container {
+  animation: fadeIn 200ms ease-in;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  /* background-color for shimmer is given in respective card component's styling */
+}
+
+/* Common for Poster and Standard shimmer */
+.shimmerTitle {
+  width: 127px;
+  height: 26px;
+  border-radius: 2px;
+  background-color: rgba(229, 229, 229, 0.1);
+
+  @media (--small-down) {
+    width: 100px;
+  }
+  @media (--xsmall-down) {
+    width: 60px;
+  }
+}
+
+.shimmerChannelLogo {
+  width: 28px;
+  height: 13px;
+  border-radius: 2px;
+  background-color: rgba(229, 229, 229, 0.1);
+}
+
+.posterMetadata {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+/* Detail shimmer */
+.detailContainer {
+  display: flex;
+  margin-left: 24px;
+}
+
+.shimmerContainer {
+  display: flex;
+}
+
+.outer {
+  padding-bottom: 10px;
+}
+
+.gridMargin {
+  margin-right: 16px;
+}
+
+.firstRow {
+  width: 47px;
+  height: 17px;
+  border-radius: 2px;
+  margin-bottom: 7px;
+  background-color: rgba(229, 229, 229, 0.1);
+}
+
+.secondRow {
+  width: 81px;
+  height: 28px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+  background-color: rgba(229, 229, 229, 0.1);
+}
+
+.thirdRow {
+  width: 50px;
+  height: 17px;
+  border-radius: 2px;
+  margin-bottom: 9px;
+  background-color: rgba(229, 229, 229, 0.1);
+}
+
+.fourthRow {
+  width: 208px;
+  height: 21px;
+  border-radius: 2px;
+  margin-bottom: 7px;
+  background-color: rgba(229, 229, 229, 0.1);
+}
+
+.fifthRow {
+  width: 104px;
+  height: 21px;
+  border-radius: 2px;
+  background-color: rgba(229, 229, 229, 0.1);
+}
+.liveTime {
+  width: 78px;
+  height: 16px;
+  border-radius: 2px;
+  background-color: rgba(229, 229, 229, 0.1);
+}
+
+@media screen and (max-width: 767px) and (min-width: 581px) {
+  .hideBwMobileTab {
+    display: block;
+  }
+
+  .showBwMobileTab {
+    display: none;
+  }
+}
+
+.paginateShimmerButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.paginateShimmerButton {
+  width: 136px;
+  height: 39px;
+  background-color: rgba(229, 229, 229, 0.1);
+}
+
+/* Styles used for schedule view, search result view shimmers. */
+.commonShimmerWrapper {
+  padding-bottom: 48px;
+  overflow: hidden;
+
+  @media (--small-up) {
+    padding-bottom: 56px;
+  }
+
+  @media (--medium-up) {
+    padding-bottom: 92px;
+  }
+}
+
+.commonTitleShimmer {
+  width: 100px;
+  height: 28px;
+  border-radius: 2px;
+  background-color: rgba(229, 229, 229, 0.08);
+  margin-bottom: 20px;
+  line-height: 1.56;
+  @media (--small-up) {
+    margin-bottom: 16px;
+  }
+
+  @media (--medium-up) {
+    margin-bottom: 20px;
+  }
+}

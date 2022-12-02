@@ -1,0 +1,63 @@
+@import "~brand/css/index.css";
+
+.container {
+  display: flex;
+  z-index: 30;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
+  @media (--medium-down) {
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (--large-up) {
+    margin-bottom: 28px;
+  }
+
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.indicatorPill {
+  width: 64px;
+  height: 2px;
+  margin-right: 2px;
+  padding: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: rgba($brand-color-white, 0.3);
+  box-shadow: rgb(0 0 0 / 20%) 0px 0px 20px 5px;
+  @media (--medium-up) {
+    margin-right: 6px;
+  }
+}
+.selectedPill {
+  height: 2px;
+  background-color: $brand-color-white;
+}
+
+.progressIndicator {
+  animation: movingRight;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes movingRight {
+  from {
+    width: 0%;
+    background: white;
+  }
+  to {
+    width: 100%;
+    background: white;
+  }
+}

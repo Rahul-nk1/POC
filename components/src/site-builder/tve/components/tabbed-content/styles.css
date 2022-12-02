@@ -1,0 +1,170 @@
+@import "~global/css/breakpoints.css";
+@import "~brand/css/index.css";
+
+.container {
+  width: 100%;
+}
+
+.loading {
+  margin: 0 auto;
+  padding: 20px 0 40px;
+}
+
+.grid {
+  @media (--atve-desktop-start) {
+    display: grid;
+    grid-template-columns: auto 400px;
+    grid-column-gap: 40px;
+    max-width: 1980px;
+    justify-content: flex-start;
+  }
+
+  @media (--large-up) {
+    justify-content: center;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: $z-container;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (--medium-up) {
+    font-size: 16px;
+  }
+
+  /**
+   * Paddings here should match those in metadataContainer (hero component)
+   * (components/src/components/tve/molecules/hero-metadata/styles.css)
+   */
+
+  padding: 0 24px 40px;
+  @media (--small-up) {
+    padding: 0 $grid-margin-small 56px;
+  }
+  @media (--medium-up) {
+    padding: 0 $grid-margin-medium 56px;
+  }
+  @media (--atve-desktop-start) {
+    align-self: flex-start;
+    width: $media-break-atve-desktop;
+    padding: 0 $grid-margin-medium;
+  }
+  @media (--large-up) {
+    align-self: flex-start;
+    width: $media-break-large;
+    padding: 0 $grid-margin-large;
+  }
+  @media (--xlarge-up) {
+    align-self: initial;
+    width: $media-break-xlarge;
+    padding: 0 $grid-margin-xlarge;
+  }
+}
+
+.aboutSection {
+  color: $brand-color-neutral-8;
+  font-size: 16px;
+  padding: 0 0 56px;
+
+  @media (--xsmall-up) {
+    padding: 0 0 56px;
+  }
+
+  @media (--medium-up) {
+    padding: 0;
+  }
+}
+
+.aboutHeader {
+  color: $brand-color-neutral-10;
+  border-bottom: 1px $brand-color-light solid;
+  margin: 12px 0 24px;
+  padding-bottom: 17px;
+
+  @media (--xsmall-down) {
+    margin: 12px 0 16px;
+  }
+}
+
+.listContainer {
+  max-width: 1286px;
+  margin: 0 auto;
+
+  @media (--large-down) {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.listContainerSchedule {
+  flex: 1;
+
+  @media (--medium-up) {
+    padding: 0 56px;
+  }
+}
+
+.selectWrapper {
+  @media (--small-down) {
+    min-width: 143px;
+  }
+}
+
+.ulPlaceholder {
+  justify-content: normal;
+  @media (--small-up) {
+    min-height: 40vw;
+  }
+}
+
+.liPlaceholder {
+  @media (--large-down) {
+    min-height: 40vw;
+  }
+}
+
+.textContainer {
+  height: auto;
+  transition: height 0.2s ease-in-out;
+
+  overflow: hidden;
+  font-family: $brand-font-primary;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+
+  @media (--xsmall-down) {
+    font-size: 12px;
+  }
+}
+
+.scheduleViewShimmerWrapper {
+  padding-bottom: 48px;
+
+  @media (--small-up) {
+    padding-bottom: 56px;
+  }
+
+  @media (--medium-up) {
+    padding-bottom: 92px;
+  }
+}
+
+.sectionTitleShimmer {
+  width: 100px;
+  height: 28px;
+  border-radius: 2px;
+  background-color: rgba(229, 229, 229, 0.08);
+  margin-bottom: 20px;
+
+  @media (--small-up) {
+    margin-bottom: 16px;
+  }
+
+  @media (--medium-up) {
+    margin-bottom: 20px;
+  }
+}

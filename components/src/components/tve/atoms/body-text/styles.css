@@ -1,0 +1,24 @@
+@import "~brand/css/index.css";
+
+.unset {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+.paragraph {
+  font-size: $brand-font-size-paragraph;
+}
+
+.details {
+  font-size: $brand-font-size-details;
+}
+
+.date {
+  font-size: $brand-font-size-date;
+}
+
+.legal {
+  font-size: $brand-font-size-legal;
+}

@@ -1,0 +1,29 @@
+@define-mixin textShadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@define-mixin playButtonSize $size {
+  height: $size;
+
+  .playButton {
+    width: $size;
+    height: $size;
+
+    .playIcon {
+      width: $size/2;
+      height: $size/2;
+    }
+  }
+}
+
+@define-mixin playButtonMargin $small, $medium, $large {
+  margin-top: $small;
+
+  @media (--medium-up) {
+    margin-top: $medium;
+  }
+
+  @media (--large-up) {
+    margin-top: $large;
+  }
+}

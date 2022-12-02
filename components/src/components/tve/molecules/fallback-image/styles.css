@@ -1,0 +1,11 @@
+@import "~brand/css/index.css";
+
+.noImage {
+  background: linear-gradient(
+    to bottom,
+    $brand-color-grey-40,
+    $brand-color-grey-20
+  );
+  height: 100%;
+  width: 100%;
+}

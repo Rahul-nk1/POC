@@ -1,0 +1,87 @@
+@import "~brand/css/index.css";
+
+/* Assumes a :root font size of 10px */
+.heading {
+  margin: 0;
+}
+
+.headingOne {
+  font-family: $brand-font-primary;
+  font-size: $brand-font-size-h1;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+
+.headingTwo {
+  font-family: $brand-font-primary;
+  font-size: $brand-font-size-h2;
+  line-height: 2.25;
+
+  /* @media (--large-up) {
+    font-size: 36px;
+  } */
+}
+
+.headingThree {
+  font-family: $brand-font-primary;
+  font-size: $brand-font-size-h3;
+  line-height: 1.3em;
+
+  /* @media (--large-up) {
+    font-size: 28px;
+  } */
+}
+
+.headingFour {
+  font-size: 16px;
+  font-family: $brand-font-secondary;
+  line-height: 1.5;
+  position: relative;
+  top: -0.1em;
+
+  @media (--large-up) {
+    font-size: 18px;
+  }
+}
+
+.headingFive {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: $brand-font-secondary;
+  line-height: 1.4;
+  position: relative;
+  top: 0.05em;
+}
+
+.headingSix {
+  font-size: 14px;
+  font-family: $brand-font-secondary;
+  line-height: 1.6;
+  position: relative;
+  top: 0.05em;
+}
+
+.normal {
+  font-family: $brand-font-secondary;
+  font-size: 12.5px;
+}
+
+.largeTag {
+  font-family: $brand-font-secondary;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1.125;
+  letter-spacing: 1px;
+  position: relative;
+  top: 0.05em;
+}
+
+.smallTag {
+  font-family: $brand-font-secondary;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 0.875;
+  letter-spacing: 1px;
+  position: relative;
+  top: 0.05em;
+}

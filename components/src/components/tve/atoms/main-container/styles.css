@@ -1,0 +1,24 @@
+@import "~brand/css/index.css";
+
+.mainContainer {
+  position: relative;
+  width: $grid-width-xsmall;
+  margin: 0 auto;
+
+  /* TODO: investigate if the below is still needed, now that the z-index has been removed from this file. Also remove the position:relative if the below is no longer needed */
+  /* needed so safari can properly composite layers */
+  backface-visibility: hidden;
+
+  @media (--small-up) {
+    width: $grid-width-small;
+  }
+  @media (--medium-up) {
+    width: $grid-width-medium;
+  }
+  @media (--large-up) {
+    width: $grid-width-large;
+  }
+  @media (--xlarge-up) {
+    width: $grid-width-xlarge;
+  }
+}

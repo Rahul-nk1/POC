@@ -1,0 +1,107 @@
+@import "~brand/css/index.css";
+@import "../../../../components/tve/organisms/hero/variables.css";
+@import "../../../../components/tve/organisms/hero/mixins.css";
+
+.heroContainer {
+  display: flex;
+  /* pos:rel with z-index:0 creates a z-context for the hero, while keeping the
+     entire hero in the default z-index plane of 0. So, all DOM Elements that
+     come after the hero will naturally appear above the hero, without requiring
+     z-contexts of their own. More on z-context here:
+            https://philipwalton.com/articles/what-no-one-told-you-about-z-index
+     */
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  margin-bottom: 48px;
+
+  @media (--small-down) {
+    margin-bottom: 32px;
+  }
+
+  @media (--atve-desktop-start) {
+    margin-bottom: 56px;
+  }
+
+  /* don't set the hero height here if it's a "single",
+      use the hero component instead */
+
+  &.single {
+    &.compact {
+      &.collapsed {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.standard.viewStandard {
+    @media (--medium-up) {
+      min-height: $b-hero-height--min;
+      & .carousel {
+        min-height: inherit;
+        & .carouselCurrent {
+          min-height: inherit;
+          & .basic {
+            min-height: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+.carousel {
+  font-weight: bold;
+
+  @mixin heroHeight $b-hero-height--xsmall, $b-hero-height--small,
+    $b-hero-height--medium, $b-hero-height--large, $b-hero-height--min;
+}
+
+.compactCarousel {
+  font-weight: bold;
+
+  @mixin heroHeight $c-hero-height--xsmall, $c-hero-height--small,
+    $c-hero-height--medium, $c-hero-height--large, $c-hero-height--min;
+}
+
+.carouselCurrent {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.goToPrev,
+.goToNext {
+  background: transparent;
+  align-self: center;
+  margin: 0 10px;
+
+  @media (--medium-down) {
+    margin: 0;
+    transform: scale(0.8);
+  }
+
+  @media (--xsmall-down) {
+    margin: 0 4px;
+  }
+}
+
+.goToNext {
+  margin-left: auto;
+}
+
+.goToNext::before {
+  content: $brand-icon-chevron-right-shadowed-carousel;
+}
+
+.goToPrev::before {
+  content: $brand-icon-chevron-left-shadowed-carousel;
+}

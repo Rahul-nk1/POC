@@ -1,0 +1,16 @@
+/* default / shared / global color constructs *
+    - this will be imported by consuming brands that will override these values
+    - or add to them
+*/
+
+@import "./neutral.css";
+@import "./alert.css";
+
+$brand-color-font-normal: $brand-color-white;
+
+/* default mapping - hard color values <-> semantic naming values
+    - not sure if we should migrade these values into $(brand)/index.css
+*/
+
+$body-bg: $brand-color-black;
+$body-fg: $brand-color-white;
