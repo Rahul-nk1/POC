@@ -105,6 +105,9 @@ $iconSizeLarge: 44px;
     display: none;
   }
 }
+.icon {
+  height: $iconSize;
+}
 
 .link {
   color: $brand-color-neutral-10;

@@ -6,6 +6,7 @@ export const footerSection3: string;
 export const copyRight: string;
 export const hideBelowMedium: string;
 export const hideAboveMedium: string;
+export const icon: string;
 export const link: string;
 export const selected: string;
 export const indicator: string;
