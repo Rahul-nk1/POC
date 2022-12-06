@@ -27,7 +27,7 @@ export type props = {
 export const Footer = ({ linksL, iconLinksL, title }: props) => {
   const [changes, history] = useHistory()
   return (
-    <div className={styles.background}>
+    <footer className={styles.background}>
       <div className={styles.footerSection1}>
         {L.mapWithIndex(
           (i, link) => (
@@ -91,6 +91,6 @@ export const Footer = ({ linksL, iconLinksL, title }: props) => {
       <div className={styles.footerSection3}>
         <div className={styles.copyRight}>{O.getOrElse(() => "")(title)}</div>
       </div>
-    </div>
+    </footer>
   )
 }

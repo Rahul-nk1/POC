@@ -1,44 +1,44 @@
-import * as L from "@discovery/prelude/lib/data/list";
-import * as M from "@discovery/prelude/lib/data/maybe";
-import { cn } from "@discovery/classnames";
-import { useState, useGlobalState } from "@discovery/common-tve/lib/hooks";
-import { Tabbable } from "@discovery/components-tve/src/utils/hooks/use-tabbable";
-import { RenderMaybe } from "@discovery/components-luna-react/lib/utils/render-maybe";
+import * as L from "@discovery/prelude/lib/data/list"
+import * as M from "@discovery/prelude/lib/data/maybe"
+import { cn } from "@discovery/classnames"
+import { useState, useGlobalState } from "@discovery/common-tve/lib/hooks"
+import { Tabbable } from "@discovery/components-tve/src/utils/hooks/use-tabbable"
+import { RenderMaybe } from "@discovery/components-luna-react/lib/utils/render-maybe"
 import {
   InteractionEvent,
   useEventDataContext,
-  triggerInteractionEvent,
-} from "@discovery/common-tve/lib/eventing";
+  triggerInteractionEvent
+} from "@discovery/common-tve/lib/eventing"
 
-import { Tags, AriaRoles } from "../../../../utils/types";
-import Strings from "../../hardcoded.json";
+import { Tags, AriaRoles } from "../../../../utils/types"
+import Strings from "../../hardcoded.json"
 
-import * as styles from "./styles.css";
-import { P, Weights } from "../../atoms/text";
-import { Link, LinkKind } from "../../atoms/link";
+import * as styles from "./styles.css"
+import { P, Weights } from "../../atoms/text"
+import { Link, LinkKind } from "../../atoms/link"
 
 export type Props = {
   tabsL: L.List<{
-    content: JSX.Element;
-    title: string;
-    id: string;
-    alias: string;
+    content: JSX.Element
+    title: string
+    id: string
+    alias: string
     items: {
-      firstPageItemCount: number;
-    };
-  }>;
-};
+      firstPageItemCount: number
+    }
+  }>
+}
 
 const MyListTabHeader = ({
   onClick,
   active,
-  children,
+  children
 }: {
-  onClick: (e: React.MouseEvent) => void;
-  active: boolean;
-  children: React.ReactNode;
+  onClick: (e: React.MouseEvent) => void
+  active: boolean
+  children: React.ReactNode
 }) => {
-  const TAG = Tags.p;
+  const TAG = Tags.p
   return (
     <Tabbable onSelectAction={onClick} role={AriaRoles.tab}>
       {({ className, ...tabbableProps }) => (
@@ -46,28 +46,27 @@ const MyListTabHeader = ({
           <TAG
             className={cn(styles.tab, styles.indicator, className, {})}
             onClick={onClick}
-            {...tabbableProps}
-          >
+            {...tabbableProps}>
             {children}
           </TAG>
           <div></div>
         </div>
       )}
     </Tabbable>
-  );
-};
+  )
+}
 
 const View = ({
   tabsL,
   selectedTabId,
-  setSelectedTabId,
+  setSelectedTabId
 }: {
-  tabsL: Props["tabsL"];
-  selectedTabId: string;
-  setSelectedTabId: (id: string) => void;
+  tabsL: Props["tabsL"]
+  selectedTabId: string
+  setSelectedTabId: (id: string) => void
 }) => {
-  const { eventData } = useEventDataContext();
-  const [{ loggedIn, loginUrlM }] = useGlobalState();
+  const { eventData } = useEventDataContext()
+  const [{ loggedIn, loginUrlM }] = useGlobalState()
 
   return (
     <div className={styles.container}>
@@ -80,16 +79,17 @@ const View = ({
                 <MyListTabHeader
                   key={i}
                   onClick={() => {
-                    setSelectedTabId(id),
+                    return (
+                      setSelectedTabId(id),
                       triggerInteractionEvent({
                         ...eventData,
                         contentIndex: i,
                         alias,
-                        interactionType: InteractionEvent.CLICK,
-                      });
+                        interactionType: InteractionEvent.CLICK
+                      })
+                    )
                   }}
-                  active={id === selectedTabId}
-                >
+                  active={id === selectedTabId}>
                   {title}
                 </MyListTabHeader>
               ),
@@ -108,8 +108,7 @@ const View = ({
             kind={LinkKind.external}
             openInNewWindow={false}
             href={M.fromMaybe(loginUrlM, "")}
-            label={Strings.linkTvProvider}
-          >
+            label={Strings.linkTvProvider}>
             <P weight={Weights.semiBold} className={styles.underline}>
               {Strings.linkTvProvider}
             </P>
@@ -121,9 +120,8 @@ const View = ({
             <div
               key={id}
               className={cn(styles.tabContent, {
-                [styles.visible]: id === selectedTabId,
-              })}
-            >
+                [styles.visible]: id === selectedTabId
+              })}>
               {content}
             </div>
           ),
@@ -131,28 +129,22 @@ const View = ({
         )
       )}
     </div>
-  );
-};
+  )
+}
 
 export const TabbedComponent = ({ tabsL }: Props) => {
-  const initialTabM = L.head(tabsL);
-  const [selectedTabIdM, setSelectedTabIdM] = useState(
-    M.map((tab) => tab.id, initialTabM)
-  );
+  const initialTabM = L.head(tabsL)
+  const [selectedTabIdM, setSelectedTabIdM] = useState(M.map((tab) => tab.id, initialTabM))
 
   return (
     <RenderMaybe>
       {M.map((selectedTabId) => {
-        const setSelectedTabId = (id: string) => setSelectedTabIdM(M.of(id));
+        const setSelectedTabId = (id: string) => setSelectedTabIdM(M.of(id))
 
         return (
-          <View
-            tabsL={tabsL}
-            selectedTabId={selectedTabId}
-            setSelectedTabId={setSelectedTabId}
-          />
-        );
+          <View tabsL={tabsL} selectedTabId={selectedTabId} setSelectedTabId={setSelectedTabId} />
+        )
       }, selectedTabIdM)}
     </RenderMaybe>
-  );
-};
+  )
+}

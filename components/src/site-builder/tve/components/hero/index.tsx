@@ -85,8 +85,6 @@ const getProps = (data: CollectionResponseData) => {
   const heroDataL = Fold.toList(_Col2HeroData, data)
   const heroDataPlaylistL = Fold.toList(_Col2HeroDataPlaylist, data)
 
-  const heroMobileImageM = Fold.preview(Fold.compose(Optics._Col2Items, _MobileImage), data)
-
   return {
     componentIdM,
     aliasM,
@@ -95,8 +93,7 @@ const getProps = (data: CollectionResponseData) => {
     isCarousel,
     isPrimary,
     heroDataL,
-    heroDataPlaylistL,
-    heroMobileImageM
+    heroDataPlaylistL
   }
 }
 
@@ -110,7 +107,6 @@ const Hero = ({
   isPrimary,
   heroDataL,
   heroDataPlaylistL,
-  heroMobileImageM,
   aliasM
 }: Props) => {
   const { componentId } = usePageMeta()

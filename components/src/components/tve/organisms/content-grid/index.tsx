@@ -5,6 +5,7 @@ import { Content } from "../../molecules/card"
 import { GridPagination } from "./paginated"
 import * as styles from "./styles.css"
 import * as O from "fp-ts/Option"
+import { pipe } from "fp-ts/lib/function"
 
 export { createContentGridPaginated } from "./paginated"
 
@@ -34,7 +35,12 @@ type ContentGridProps = {
 
 export const ContentGrid = ({ children, titleM, isEmpty }: ContentGridProps) => (
   <>
-    {!isEmpty && O.getOrElse(() => "")(titleM) !== "Empty Playlist Rail" ? (
+    {!isEmpty &&
+    pipe(
+      titleM,
+      O.map((title) => title !== "Empty Playlist Rail"),
+      O.toNullable
+    ) ? (
       <>
         <div className={styles.sectionTitle}>{O.getOrElse(() => "")(titleM)}</div>
         <div className={styles.contentGrid}>{children}</div>

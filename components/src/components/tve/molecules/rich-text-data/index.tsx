@@ -10,10 +10,11 @@ import {
   Span,
   Weights,
   Decorations,
-  Styles,
-} from "../../atoms/text";
-import { Link, LinkKind } from "../../atoms/link";
-import styles from "./styles.css";
+  Styles
+} from "../../atoms/text"
+import React from "react"
+import { Link, LinkKind } from "../../atoms/link"
+import styles from "./styles.css"
 import {
   AST,
   Block,
@@ -21,122 +22,109 @@ import {
   EntityProps,
   ResultPair,
   TextDescription,
-  TextDescriptionReducer,
-} from "./types";
-import * as A from "fp-ts/lib/Array";
+  TextDescriptionReducer
+} from "./types"
+import * as A from "fp-ts/lib/Array"
 
-const isType = (type: string) => (x: { type: string }) => x.type === type;
+const isType = (type: string) => (x: { type: string }) => x.type === type
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const takeWhile = <A extends {}>(p: (x: A) => boolean) => (xs: A[]) => {
-  const separated = A.spanLeft(p)(xs);
+  const separated = A.spanLeft(p)(xs)
 
-  return [separated.init, separated.rest] as const;
-};
+  return [separated.init, separated.rest] as const
+}
 
-const filterInRange = <A extends { length: number; offset: number }>(
-  xs: A[],
-  offset: number
-) => xs.filter((x) => offset >= x.offset && offset < x.offset + x.length);
+const filterInRange = <A extends { length: number; offset: number }>(xs: A[], offset: number) =>
+  xs.filter((x) => offset >= x.offset && offset < x.offset + x.length)
 
 const getTextDescriptions = (block: Block): TextDescription[] => {
   const { nodes, prev } = block.text.split("").reduce(
     ({ nodes, prev }: TextDescriptionReducer, c, i) => {
-      const styles = filterInRange(block.inlineStyleRanges, i).map(
-        (x) => x.style
-      );
+      const styles = filterInRange(block.inlineStyleRanges, i).map((x) => x.style)
 
-      const keys = filterInRange(block.entityRanges, i).map((x) => x.key);
+      const keys = filterInRange(block.entityRanges, i).map((x) => x.key)
 
       const same =
         prev !== null &&
         styles.length === prev.styles.length &&
         styles.every((s) => prev.styles.includes(s)) &&
         keys.length === prev.keys.length &&
-        keys.every((n) => prev.keys.includes(n));
+        keys.every((n) => prev.keys.includes(n))
 
       return {
         nodes: prev === null ? nodes : same ? nodes : nodes.concat([prev]),
         prev: {
           keys,
           styles,
-          text: prev === null ? c : same ? prev.text + c : c,
-        },
-      };
+          text: prev === null ? c : same ? prev.text + c : c
+        }
+      }
     },
     {
       nodes: [],
-      prev: null,
+      prev: null
     }
-  );
+  )
 
-  return prev === null ? nodes : nodes.concat([prev]).filter((x) => x !== null);
-};
+  return prev === null ? nodes : nodes.concat([prev]).filter((x) => x !== null)
+}
 
 const LinkEntityBlock = (props: EntityProps) => (
   <Link
     kind={LinkKind.external}
     href={props.entity.data.href}
-    label={typeof props.children === "string" ? props.children : ""}
-  >
+    label={typeof props.children === "string" ? props.children : ""}>
     {props.children}
   </Link>
-);
+)
 const entityTypeMap = {
-  LINK: LinkEntityBlock,
-};
+  LINK: LinkEntityBlock
+}
 
 const getTextNodes = (entityMap: EntityMap, block: Block) =>
   getTextDescriptions(block).map((x, i) =>
     x.keys.reduce(
       (comp, n) => {
-        const entity = entityMap[n];
-        const type = entity?.type;
+        const entity = entityMap[n]
+        const type = entity?.type
 
         return type && entity
           ? entityTypeMap[type]({
               children: comp,
               entity,
-              key: block.key + i,
+              key: block.key + i
             })
-          : comp;
+          : comp
       },
       <Span
         key={i}
         weight={x.styles.includes("BOLD") ? Weights.bold : Weights.normal}
         style={x.styles.includes("ITALIC") ? Styles.italic : Styles.normal}
-        decoration={
-          x.styles.includes("UNDERLINE")
-            ? Decorations.underline
-            : Decorations.none
-        }
-      >
+        decoration={x.styles.includes("UNDERLINE") ? Decorations.underline : Decorations.none}>
         {x.text}
       </Span>
     )
-  );
+  )
 
-const takeUnstyled = takeWhile<Block>(isType("unstyled"));
+const takeUnstyled = takeWhile<Block>(isType("unstyled"))
 
 const Text = (entityMap: EntityMap, blocks: Block[]): ResultPair => {
-  const [xs, ys] = takeUnstyled(blocks);
+  const [xs, ys] = takeUnstyled(blocks)
   return [
     <div>
       {xs?.map((x) => (
         <P key={x.key}>{getTextNodes(entityMap, x)}</P>
       ))}
     </div>,
-    ys,
-  ];
-};
+    ys
+  ]
+}
 
-const takeHeader = (k: string) => takeWhile<Block>(isType(`header-${k}`));
+const takeHeader = (k: string) => takeWhile<Block>(isType(`header-${k}`))
 
-const Header = (H: TextView, k: string) => (
-  entityMap: EntityMap,
-  blocks: Block[]
-): ResultPair => {
-  const [xs, ys] = takeHeader(k)(blocks);
+const Header = (H: TextView, k: string) => (entityMap: EntityMap, blocks: Block[]): ResultPair => {
+  const [xs, ys] = takeHeader(k)(blocks)
 
   return [
     <div>
@@ -144,98 +132,85 @@ const Header = (H: TextView, k: string) => (
         <H>{getTextNodes(entityMap, x)}</H>
       ))}
     </div>,
-    ys,
-  ];
-};
+    ys
+  ]
+}
 
 const ListItem = (entityMap: EntityMap) => (block: Block) => (
   <li key={block.key}>
     <P className={styles.listItem}>{getTextNodes(entityMap, block)}</P>
   </li>
-);
+)
 
-const takeOrderedListItem = takeWhile<Block>(isType("ordered-list-item"));
+const takeOrderedListItem = takeWhile<Block>(isType("ordered-list-item"))
 
 const OrderedListItem = (entityMap: EntityMap, blocks: Block[]): ResultPair => {
-  const [xs, ys] = takeOrderedListItem(blocks);
+  const [xs, ys] = takeOrderedListItem(blocks)
 
-  return [<ol>{xs?.map(ListItem(entityMap))}</ol>, ys];
-};
+  return [<ol>{xs?.map(ListItem(entityMap))}</ol>, ys]
+}
 
-const takeUnorderedListItem = takeWhile<Block>(isType("unordered-list-item"));
+const takeUnorderedListItem = takeWhile<Block>(isType("unordered-list-item"))
 
-const UnorderedListItem = (
-  entityMap: EntityMap,
-  blocks: Block[]
-): ResultPair => {
-  const [xs, ys] = takeUnorderedListItem(blocks);
+const UnorderedListItem = (entityMap: EntityMap, blocks: Block[]): ResultPair => {
+  const [xs, ys] = takeUnorderedListItem(blocks)
 
-  return [<ul>{xs?.map(ListItem(entityMap))}</ul>, ys];
-};
+  return [<ul>{xs?.map(ListItem(entityMap))}</ul>, ys]
+}
 
-const takeBlockQuote = takeWhile<Block>(isType("blockquote"));
+const takeBlockQuote = takeWhile<Block>(isType("blockquote"))
 
 const BlockQuote = (entityMap: EntityMap, blocks: Block[]): ResultPair => {
-  const [xs, ys] = takeBlockQuote(blocks);
-  return [
-    <blockquote>
-      {xs?.map((block) => getTextNodes(entityMap, block))}
-    </blockquote>,
-    ys,
-  ];
-};
+  const [xs, ys] = takeBlockQuote(blocks)
+  return [<blockquote>{xs?.map((block) => getTextNodes(entityMap, block))}</blockquote>, ys]
+}
 
 const NotSupported = (type: string) => (blocks: Block[]): ResultPair => {
-  const [, v] = takeWhile<Block>(isType(type))(blocks);
-  return [<></>, v];
-};
+  const [, v] = takeWhile<Block>(isType(type))(blocks)
+  return [<></>, v]
+}
 
-export const blockTypeMap = (
-  blocks: Block[],
-  entityMap: EntityMap
-): ResultPair => {
-  const [block] = blocks;
-  const type = block?.type;
+export const blockTypeMap = (blocks: Block[], entityMap: EntityMap): ResultPair => {
+  const [block] = blocks
+  const type = block?.type
   switch (type) {
     case "unstyled":
-      return Text(entityMap, blocks);
+      return Text(entityMap, blocks)
     case "header-one":
-      return Header(H1, "one")(entityMap, blocks);
+      return Header(H1, "one")(entityMap, blocks)
     case "header-two":
-      return Header(H2, "two")(entityMap, blocks);
+      return Header(H2, "two")(entityMap, blocks)
     case "header-three":
-      return Header(H3, "three")(entityMap, blocks);
+      return Header(H3, "three")(entityMap, blocks)
     case "header-four":
-      return Header(H4, "four")(entityMap, blocks);
+      return Header(H4, "four")(entityMap, blocks)
     case "header-five":
-      return Header(H5, "five")(entityMap, blocks);
+      return Header(H5, "five")(entityMap, blocks)
     case "header-six":
-      return Header(H6, "six")(entityMap, blocks);
+      return Header(H6, "six")(entityMap, blocks)
     case "ordered-list-item":
-      return OrderedListItem(entityMap, blocks);
+      return OrderedListItem(entityMap, blocks)
     case "unordered-list-item":
-      return UnorderedListItem(entityMap, blocks);
+      return UnorderedListItem(entityMap, blocks)
     case "blockquote":
-      return BlockQuote(entityMap, blocks);
+      return BlockQuote(entityMap, blocks)
     default:
-      return NotSupported(String(type))(blocks);
+      return NotSupported(String(type))(blocks)
   }
-};
+}
 
 const renderAST = (ast: AST) => {
-  let blocks = ast.blocks;
-  const vdom = [];
-  let i = 0;
+  let blocks = ast.blocks
+  const vdom = []
+  let i = 0
   while (blocks.length > 0) {
-    const [vdom_, blocks_] = blockTypeMap(blocks, ast.entityMap);
-    vdom.push(<React.Fragment key={i}>{vdom_}</React.Fragment>);
-    blocks = blocks_;
-    i++;
+    const [vdom_, blocks_] = blockTypeMap(blocks, ast.entityMap)
+    vdom.push(<React.Fragment key={i}>{vdom_}</React.Fragment>)
+    blocks = blocks_
+    i++
   }
 
-  return vdom;
-};
+  return vdom
+}
 
-export const RenderBlocks = ({ ast }: { ast: AST }) => (
-  <div>{renderAST(ast)}</div>
-);
+export const RenderBlocks = ({ ast }: { ast: AST }) => <div>{renderAST(ast)}</div>
