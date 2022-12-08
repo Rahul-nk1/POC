@@ -8,7 +8,8 @@ import { P, Weights } from "../../atoms/text"
 import { Link, LinkProps } from "../../atoms/link"
 import * as O from "fp-ts/Option"
 import * as styles from "./styles.css"
-import { LinkIcon } from "./linkIcons"
+import { SonicImage } from "../../atoms/sonic-image"
+import { Images } from "@discovery/sonic-api-ng/lib/api/cms"
 
 type ItemProps = LinkProps & {
   title?: string
@@ -26,6 +27,7 @@ export type props = {
 }
 export const Footer = ({ linksL, iconLinksL, title }: props) => {
   const [changes, history] = useHistory()
+  const iconSizeLarge = 40
   return (
     <footer className={styles.background}>
       <div className={styles.footerSection1}>
@@ -79,8 +81,36 @@ export const Footer = ({ linksL, iconLinksL, title }: props) => {
                     [styles.selected]: changes.location.pathname === link.href
                   })}
                   label={link.title}>
-                  <LinkIcon iconM={link.iconMobileM} className={styles.hideAboveMedium} />
-                  <LinkIcon iconM={link.iconDesktopM} className={styles.hideBelowMedium} />
+                  {O.fold(
+                    () => {
+                      return <></>
+                    },
+                    (mobileIcon: Images.Attributes.Attributes) => {
+                      return (
+                        <SonicImage
+                          image={mobileIcon}
+                          format="PNG"
+                          className={cn(styles.hideAboveMedium, styles.icon)}
+                          fallbackImageSize={{ width: iconSizeLarge }}
+                        />
+                      )
+                    }
+                  )(link.iconMobileM)}
+                  {O.fold(
+                    () => {
+                      return <></>
+                    },
+                    (desktopIcon: Images.Attributes.Attributes) => {
+                      return (
+                        <SonicImage
+                          image={desktopIcon}
+                          format="PNG"
+                          className={cn(styles.hideBelowMedium, styles.icon)}
+                          fallbackImageSize={{ width: iconSizeLarge }}
+                        />
+                      )
+                    }
+                  )(link.iconDesktopM)}
                 </Link>
               </EventDataProvider>
             ),

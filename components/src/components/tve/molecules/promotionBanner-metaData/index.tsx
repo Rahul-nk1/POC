@@ -57,12 +57,21 @@ export const PromotionBannerMetaData = (props: promotionBannerMetadtaProps) => {
       <H3 size={Sizes.l} kind={Kinds.section} className={styles.title}>
         <RenderMaybe>{props.titleM}</RenderMaybe>
       </H3>
-      <SonicImage
-        image={O.getOrElse(() => ({} as Images.Attributes.Attributes))(props.promoSpectrumbarM)}
-        format="PNG"
-        fallbackImageSize={{ width: 700 }}
-        className={styles.promoSpectrumBar}
-      />
+      {O.fold(
+        () => {
+          return <></>
+        },
+        (spectrumImage: Images.Attributes.Attributes) => {
+          return (
+            <SonicImage
+              image={spectrumImage}
+              format="PNG"
+              className={styles.promoSpectrumBar}
+              fallbackImageSize={{ width: iconSizeLarge }}
+            />
+          )
+        }
+      )(props.promoSpectrumbarM)}
       <P kind={Kinds.body} size={Sizes.m} className={styles.description}>
         <RenderMaybe>{props.descriptionM}</RenderMaybe>
       </P>

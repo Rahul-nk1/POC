@@ -4,8 +4,6 @@ import { RenderMaybe } from "@discovery/components-luna-react/lib/utils/render-m
 import { ImageData } from "@discovery/sonic-api-ng/lib/api/cms/images/resource"
 import { SonicImage } from "../../atoms/sonic-image"
 
-import { readInt } from "../../../../utils/number"
-
 import * as styles from "./styles.css"
 
 const iconSizeLarge = 40
